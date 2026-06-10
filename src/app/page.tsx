@@ -5,6 +5,7 @@ import Plans from "@/components/site/Plans";
 import Benefits from "@/components/site/Benefits";
 import WhyChoose from "@/components/site/WhyChoose";
 import Coverage from "@/components/site/Coverage";
+import Offices from "@/components/site/Offices";
 import LoyaltyContract from "@/components/site/LoyaltyContract";
 import Testimonials from "@/components/site/Testimonials";
 import FAQ from "@/components/site/FAQ";
