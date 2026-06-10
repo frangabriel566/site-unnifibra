@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Cable, Gauge, Headset, Wallet2, ArrowRight, ListChecks } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import CTAButton from "./CTAButton";
+import Logo from "./Logo";
 
 const HIGHLIGHT_CARDS = [
   { icon: Cable, label: "Fibra óptica" },
