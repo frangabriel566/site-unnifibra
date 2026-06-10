@@ -53,7 +53,7 @@ administrativo (`/admin`) edita os mesmos dados em tempo real (salvos em
 | O que alterar | Onde |
 | --- | --- |
 | Nome da empresa, slogan, descrição | `siteConfig.general` ou Admin → Configurações gerais |
-| Logo | Substitua `public/logo.svg` (ou outro arquivo) e atualize `siteConfig.general.logo` |
+| Logo | Substitua `public/logo.png` e, se mudar o caminho, atualize `siteConfig.general.logo` |
 | WhatsApp | `siteConfig.general.whatsappNumber` ou Admin → Configurações gerais |
 | Planos e preços | `siteConfig.plans` ou Admin → Planos |
 | Promoção | `siteConfig.promotion` ou Admin → Promoção |
