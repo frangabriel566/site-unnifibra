@@ -71,17 +71,24 @@ administrativo (`/admin`) edita os mesmos dados em tempo real (salvos em
 
 ## 5. Logo
 
-Enquanto a logo oficial não é enviada, é usado um placeholder (ícone +
-texto "UNNI**FIBRA**" com gradiente) no Header, Footer e tela de login.
-Para usar a logo definitiva:
+A logo oficial da UNNIFIBRA é usada em todo o site através do componente
+[`src/components/site/Logo.tsx`](src/components/site/Logo.tsx), que renderiza
+`siteConfig.general.logo` (`public/logo.png`) com `next/image`. Ela aparece
+no Header, no card visual da Hero, no Footer e na tela de login do painel
+administrativo, sempre dentro de um cartão claro para manter o contraste com
+o fundo escuro.
 
-1. Salve o arquivo em `public/logo.png` (ou `.svg`).
-2. Atualize `siteConfig.general.logo` para o novo caminho.
-3. Substitua o bloco de placeholder em
-   [`src/components/site/Header.tsx`](src/components/site/Header.tsx) e
-   [`src/components/site/Footer.tsx`](src/components/site/Footer.tsx) por um
-   componente `<Image src={siteConfig.general.logo} ... />` do `next/image`.
-4. Para o favicon, substitua `src/app/favicon.ico`.
+Para trocar a logo:
+
+1. Salve o novo arquivo em `public/logo.png` (recomendado: PNG com fundo
+   transparente).
+2. Se o caminho/nome do arquivo mudar, atualize `siteConfig.general.logo`.
+3. O componente `<Logo height={...} />` ajusta a largura automaticamente
+   mantendo a proporção — não é necessário editar Header, Hero, Footer ou
+   login novamente.
+4. Para o favicon, o mesmo arquivo `public/logo.png` já é referenciado em
+   `src/app/layout.tsx` (`icons.icon` e `icons.apple`); para um favicon
+   `.ico` tradicional, substitua também `src/app/favicon.ico`.
 
 ## 6. Google Ads, Analytics, Meta Pixel e TikTok Pixel
 
