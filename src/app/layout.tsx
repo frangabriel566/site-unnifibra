@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     description: siteConfig.seo.ogDescription,
     images: [siteConfig.seo.ogImage],
   },
-  other: siteConfig.seo.googleSearchConsoleVerification
-    ? { "google-site-verification": siteConfig.seo.googleSearchConsoleVerification }
+  other: siteConfig.integrations.googleSearchConsoleVerification
+    ? { "google-site-verification": siteConfig.integrations.googleSearchConsoleVerification }
     : undefined,
 };
 
