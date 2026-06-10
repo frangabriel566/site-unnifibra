@@ -17,6 +17,7 @@ import {
   BarChart3,
   Github,
   GalleryHorizontal,
+  Building2,
   LogOut,
   X,
 } from "lucide-react";
