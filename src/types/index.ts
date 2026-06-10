@@ -140,6 +140,17 @@ export interface GitHubDeployConfig {
   vercelApiToken?: string; // nunca expor no frontend
 }
 
+export interface HeroBanner {
+  id: string;
+  image: string;
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  buttonLink: string;
+  active: boolean;
+  order: number;
+}
+
 export interface AppearanceConfig {
   primaryColor: string;
   secondaryColor: string;
@@ -151,6 +162,7 @@ export interface AppearanceConfig {
   heroSubtitle: string;
   ctaPrimaryText: string;
   ctaSecondaryText: string;
+  heroBanners: HeroBanner[];
 }
 
 export interface GeneralConfig {
