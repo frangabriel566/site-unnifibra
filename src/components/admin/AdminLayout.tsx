@@ -9,6 +9,7 @@ const SECTION_TITLES: Record<AdminSection, string> = {
   dashboard: "Dashboard",
   general: "Configurações gerais",
   appearance: "Aparência",
+  heroBanners: "Banners do início",
   plans: "Planos",
   promotion: "Promoção",
   loyalty: "Fidelidade",
