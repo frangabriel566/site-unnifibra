@@ -26,6 +26,7 @@ export type AdminSection =
   | "dashboard"
   | "general"
   | "appearance"
+  | "heroBanners"
   | "plans"
   | "promotion"
   | "loyalty"
