@@ -30,7 +30,12 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-[480px] w-full overflow-hidden sm:h-[560px] lg:h-[640px]"
+      className={cn(
+        "relative w-full overflow-hidden bg-brand-primary",
+        banner.title
+          ? "h-[480px] sm:h-[560px] lg:h-[640px]"
+          : "aspect-[2/1] sm:aspect-[16/6] lg:h-[640px] lg:aspect-auto"
+      )}
     >
       <AnimatePresence mode="wait">
         <motion.a
