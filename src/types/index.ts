@@ -89,6 +89,13 @@ export interface Office {
   order: number;
 }
 
+export interface CoverageCity {
+  id: string;
+  name: string;
+  available: boolean;
+  order: number;
+}
+
 export interface SocialLinks {
   instagram: string;
   facebook: string;
