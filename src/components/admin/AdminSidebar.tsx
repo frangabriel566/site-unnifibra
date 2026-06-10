@@ -44,6 +44,7 @@ const MENU: { id: AdminSection; label: string; icon: React.ElementType }[] = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
   { id: "general", label: "Configurações gerais", icon: Settings },
   { id: "appearance", label: "Aparência", icon: Palette },
+  { id: "heroBanners", label: "Banners do início", icon: GalleryHorizontal },
   { id: "plans", label: "Planos", icon: Wifi },
   { id: "promotion", label: "Promoção", icon: Tag },
   { id: "loyalty", label: "Fidelidade", icon: ShieldCheck },
