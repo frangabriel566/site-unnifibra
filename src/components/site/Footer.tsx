@@ -38,14 +38,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-brand-primary shadow-lg shadow-sky-500/30">
-                <Wifi className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-xl font-extrabold tracking-tight text-white">
-                {general.companyName.slice(0, 4)}
-                <span className="text-gradient">{general.companyName.slice(4)}</span>
-              </span>
+            <div className="flex items-center rounded-xl bg-white/95 px-3 py-2 w-fit">
+              <Logo height={36} />
             </div>
             <p className="mt-4 text-sm text-slate-400">{general.description}</p>
             <div className="mt-5 flex gap-3">
