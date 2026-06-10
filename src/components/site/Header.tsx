@@ -38,14 +38,8 @@ export default function Header() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#inicio" className="flex items-center gap-2">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-brand-primary shadow-lg shadow-sky-500/30">
-            <Wifi className="h-5 w-5 text-white" />
-          </div>
-          <span className="text-xl font-extrabold tracking-tight text-white">
-            {siteConfig.general.companyName.slice(0, 4)}
-            <span className="text-gradient">{siteConfig.general.companyName.slice(4)}</span>
-          </span>
+        <a href="#inicio" className="flex items-center">
+          <Logo height={40} />
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">
