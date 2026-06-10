@@ -136,9 +136,13 @@ export default function HeroBannersManager() {
                   placeholder="#planos"
                 />
               </Field>
-              <Field label="Ativo">
-                <Toggle checked={banner.active} onChange={(v) => update(banner.id, { active: v })} />
-              </Field>
+              <div className="flex items-end pb-2">
+                <Toggle
+                  checked={banner.active}
+                  onChange={(v) => update(banner.id, { active: v })}
+                  label="Banner ativo"
+                />
+              </div>
             </div>
           </div>
 
