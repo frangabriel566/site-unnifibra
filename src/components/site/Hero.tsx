@@ -36,6 +36,11 @@ export default function Hero() {
         <motion.a
           key={banner.id}
           href={banner.buttonLink || "#planos"}
+          target={isExternalLink ? "_blank" : undefined}
+          rel={isExternalLink ? "noopener noreferrer" : undefined}
+          onClick={() => {
+            if (isExternalLink) trackEvent("whatsapp_click", { source: "hero_banner" });
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
