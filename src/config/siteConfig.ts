@@ -35,12 +35,6 @@ export const siteConfig: SiteConfig = {
     accentColor: "#22c55e", // verde whatsapp / destaque
     buttonColor: "#0ea5e9",
     theme: "dark",
-    heroImage: "/hero-bg.jpg",
-    heroTitle: "Internet fibra óptica rápida, estável e sem complicação",
-    heroSubtitle:
-      "A UNNIFIBRA conecta sua casa ou empresa com velocidade, estabilidade e atendimento próximo de você.",
-    ctaPrimaryText: "Contratar agora",
-    ctaSecondaryText: "Ver planos",
     heroBanners: [
       {
         id: "banner-1",
