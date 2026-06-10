@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UNNIFIBRA — Site institucional + Painel administrativo
 
-## Getting Started
+Site comercial em Next.js (App Router) + TypeScript + Tailwind CSS + Framer
+Motion + Lucide React, com painel administrativo (`/admin`) para editar todo
+o conteúdo do site.
 
-First, run the development server:
+## 1. Rodar localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) para o site, e
+[http://localhost:3000/admin/login](http://localhost:3000/admin/login) para o
+painel administrativo (qualquer e-mail/senha funciona — autenticação
+simulada).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build de produção:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## 2. Subir para o GitHub
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git init   # se ainda não houver repositório
+git add .
+git commit -m "Site UNNIFIBRA"
+git branch -M main
+git remote add origin https://github.com/SEU-USUARIO/unnifibra.git
+git push -u origin main
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3. Publicar na Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Acesse [vercel.com](https://vercel.com) e clique em **New Project**.
+2. Importe o repositório do GitHub.
+3. Mantenha as configurações padrão (Next.js é detectado automaticamente).
+4. Clique em **Deploy**.
+5. Configure variáveis de ambiente, se necessário, em
+   **Project Settings → Environment Variables**.
 
-## Deploy on Vercel
+## 4. Onde editar cada coisa
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Todo o conteúdo do site está centralizado em
+[`src/config/siteConfig.ts`](src/config/siteConfig.ts). O painel
+administrativo (`/admin`) edita os mesmos dados em tempo real (salvos em
+`localStorage` por enquanto).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| O que alterar | Onde |
+| --- | --- |
+| Nome da empresa, slogan, descrição | `siteConfig.general` ou Admin → Configurações gerais |
+| Logo | Substitua `public/logo.svg` (ou outro arquivo) e atualize `siteConfig.general.logo` |
+| WhatsApp | `siteConfig.general.whatsappNumber` ou Admin → Configurações gerais |
+| Planos e preços | `siteConfig.plans` ou Admin → Planos |
+| Promoção | `siteConfig.promotion` ou Admin → Promoção |
+| Fidelidade | `siteConfig.loyalty` ou Admin → Fidelidade |
+| Benefícios / diferenciais | `siteConfig.benefits` / `siteConfig.differentials` ou Admin → Benefícios |
+| Depoimentos | `siteConfig.testimonials` ou Admin → Depoimentos |
+| FAQ | `siteConfig.faq` ou Admin → FAQ |
+| Redes sociais | `siteConfig.social` ou Admin → Redes sociais |
+| Cores da marca | `siteConfig.appearance` ou Admin → Aparência (também ajuste as variáveis CSS em `src/app/globals.css`) |
+| SEO (title, description, OG, robots) | `siteConfig.seo` ou Admin → SEO |
+| Google Ads | `siteConfig.googleAds` ou Admin → Google Ads |
+| Google Analytics (GA4) | `siteConfig.analytics` ou Admin → Analytics |
+| Meta Pixel / TikTok Pixel | `siteConfig.metaPixel` / `siteConfig.tiktokPixel` ou Admin → Integrações |
+| GitHub / Vercel | `siteConfig.github` ou Admin → GitHub e Deploy |
+
+## 5. Logo
+
+Enquanto a logo oficial não é enviada, é usado um placeholder (ícone +
+texto "UNNI**FIBRA**" com gradiente) no Header, Footer e tela de login.
+Para usar a logo definitiva:
+
+1. Salve o arquivo em `public/logo.png` (ou `.svg`).
+2. Atualize `siteConfig.general.logo` para o novo caminho.
+3. Substitua o bloco de placeholder em
+   [`src/components/site/Header.tsx`](src/components/site/Header.tsx) e
+   [`src/components/site/Footer.tsx`](src/components/site/Footer.tsx) por um
+   componente `<Image src={siteConfig.general.logo} ... />` do `next/image`.
+4. Para o favicon, substitua `src/app/favicon.ico`.
+
+## 6. Google Ads, Analytics, Meta Pixel e TikTok Pixel
+
+Os scripts de tracking só são carregados quando ativados e com IDs
+preenchidos (`siteConfig.googleAds.enabled`, `siteConfig.analytics.enabled`,
+etc). Configure pelo Admin → Google Ads / Analytics / Integrações, ou
+diretamente em `siteConfig.ts`. Os scripts são injetados em
+[`src/app/layout.tsx`](src/app/layout.tsx) e os eventos são disparados via
+[`src/lib/analytics.ts`](src/lib/analytics.ts) → `trackEvent(...)`.
+
+Eventos disparados automaticamente pelos botões: `whatsapp_click`,
+`plan_whatsapp_click`, `coverage_whatsapp_click`, `promotion_whatsapp_click`,
+`loyalty_whatsapp_click`.
+
+## 7. Preparar integração futura com Supabase / banco de dados
+
+A estrutura já está pronta para isso:
+
+- [`src/types/index.ts`](src/types/index.ts) define os tipos de todas as
+  entidades (`Plan`, `Benefit`, `Testimonial`, `FAQItem`, etc).
+- [`src/config/siteConfig.ts`](src/config/siteConfig.ts) tem o mesmo formato
+  que futuramente viria do banco — basta substituir o `import siteConfig` por
+  uma chamada a uma API/server action que retorna os mesmos tipos.
+- [`src/components/admin/AdminConfigContext.tsx`](src/components/admin/AdminConfigContext.tsx)
+  centraliza toda leitura/escrita de configuração do painel. Para conectar a
+  um banco real (Supabase, PostgreSQL + Prisma), basta trocar a leitura do
+  `localStorage` e a função `updateConfig` por chamadas a uma API.
+
+## 8. Proteger o painel administrativo no futuro
+
+Hoje o `/admin` usa uma autenticação simulada (`localStorage`). Para produção,
+recomenda-se:
+
+- **NextAuth** ou **Supabase Auth** para login real (e-mail/senha, magic link
+  ou OAuth).
+- Proteger as rotas `/admin/**` com um `middleware.ts` que verifica a sessão
+  no servidor.
+- Mover os tokens de API (GitHub, Vercel) para variáveis de ambiente no
+  servidor — nunca no frontend (já há um aviso disso em Admin → GitHub e
+  Deploy).
+
+## 9. Evitar erros de build na Vercel
+
+- Rode `npm run build` localmente antes de cada push — o projeto já está
+  configurado para passar em `next build` e `npm run lint` sem erros.
+- Não remova os tipos em `src/types/index.ts` sem atualizar
+  `src/config/siteConfig.ts` (eles são fortemente tipados).
+- Variáveis de ambiente sensíveis (tokens) devem ser configuradas em
+  **Vercel → Project Settings → Environment Variables**, nunca commitadas.
+- O ESLint do projeto está configurado com as regras do `eslint-config-next`;
+  rode `npm run lint` antes de subir alterações.
+
+## 10. Estrutura do projeto
+
+```
+src/
+  app/
+    page.tsx            # Página inicial
+    layout.tsx          # Layout raiz + scripts de tracking
+    globals.css
+    robots.ts
+    sitemap.ts
+    admin/
+      page.tsx          # Painel administrativo (protegido)
+      login/page.tsx    # Tela de login (simulada)
+  components/
+    site/               # Header, Hero, Promotion, Plans, etc.
+    admin/              # Sidebar, Layout, Dashboard, formulários de gestão
+  config/
+    siteConfig.ts       # Todos os dados editáveis do site
+  lib/
+    whatsapp.ts         # generateWhatsAppLink()
+    analytics.ts        # trackEvent()
+    utils.ts
+  types/
+    index.ts            # Tipos compartilhados
+```
+
+## Dados fictícios a substituir
+
+Os seguintes dados são **fictícios** e devem ser substituídos pelos dados
+reais da UNNIFIBRA assim que disponíveis (em `siteConfig.ts`):
+
+- `general.whatsappNumber`, `general.email`, `general.phone`,
+  `general.address`, `general.cnpj`
+- `social.*` (Instagram, Facebook, TikTok, YouTube, LinkedIn)
+- Logo (`public/logo.svg` / `general.logo`)
+- Cores em `appearance` e em `src/app/globals.css`
