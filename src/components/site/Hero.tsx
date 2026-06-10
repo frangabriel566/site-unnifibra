@@ -31,45 +31,52 @@ export default function Hero() {
       className="relative h-[480px] w-full overflow-hidden sm:h-[560px] lg:h-[640px]"
     >
       <AnimatePresence mode="wait">
-        <motion.div
+        <motion.a
           key={banner.id}
+          href={banner.buttonLink || "#planos"}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="absolute inset-0"
+          className="absolute inset-0 block"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={banner.image}
-            alt={banner.title}
+            alt={banner.title || siteConfig.general.companyName}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/85 via-brand-primary/40 to-transparent" />
-        </motion.div>
+          {banner.title && (
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/85 via-brand-primary/40 to-transparent" />
+          )}
+        </motion.a>
       </AnimatePresence>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8">
-        <motion.div
-          key={`${banner.id}-text`}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-xl"
-        >
-          <h1 className="text-3xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
-            {banner.title}
-          </h1>
-          <p className="mt-4 text-lg font-medium text-white/90">{banner.subtitle}</p>
-          <a
-            href={banner.buttonLink}
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-brand-primary shadow-lg shadow-black/20 transition-transform hover:scale-105"
+      {banner.title && (
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8">
+          <motion.div
+            key={`${banner.id}-text`}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="max-w-xl"
           >
-            {banner.buttonText}
-            <ArrowRight className="h-5 w-5" />
-          </a>
-        </motion.div>
-      </div>
+            <h1 className="text-3xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+              {banner.title}
+            </h1>
+            <p className="mt-4 text-lg font-medium text-white/90">{banner.subtitle}</p>
+            {banner.buttonText && (
+              <a
+                href={banner.buttonLink}
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-brand-primary shadow-lg shadow-black/20 transition-transform hover:scale-105"
+              >
+                {banner.buttonText}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            )}
+          </motion.div>
+        </div>
+      )}
 
       {banners.length > 1 && (
         <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
