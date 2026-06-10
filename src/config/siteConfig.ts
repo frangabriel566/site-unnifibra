@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
     slogan: "Não navegue, voe!",
     description:
       "Provedor de internet fibra óptica com planos de alta velocidade, instalação gratuita e atendimento humanizado.",
-    logo: "/logo.png",
+    logo: "/logo.svg",
     favicon: "/favicon.ico",
     // FICTÍCIO - substituir pelo número oficial do WhatsApp (com DDI e DDD)
     whatsappNumber: "5511999999999",
