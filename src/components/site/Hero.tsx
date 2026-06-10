@@ -100,8 +100,8 @@ export default function Hero() {
           <div className="glass relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-3xl p-8">
             <div className="absolute inset-0 bg-gradient-to-br from-sky-500/30 via-transparent to-brand-primary/30" />
             <div className="relative flex h-full flex-col items-center justify-center gap-6 text-center">
-              <div className="flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-brand-primary shadow-2xl shadow-sky-500/40 animate-glow-pulse">
-                <Cable className="h-14 w-14 text-white" />
+              <div className="rounded-2xl bg-white/95 px-6 py-4 shadow-2xl shadow-sky-500/40 animate-glow-pulse">
+                <Logo height={56} />
               </div>
               <div>
                 <p className="text-3xl font-extrabold text-white">800 Mbps</p>
