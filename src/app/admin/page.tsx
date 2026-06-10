@@ -57,6 +57,7 @@ export default function AdminPage() {
         {section === "promotion" && <PromotionSettings />}
         {section === "loyalty" && <LoyaltySettings />}
         {section === "benefits" && <BenefitsManager />}
+        {section === "offices" && <OfficesManager />}
         {section === "testimonials" && <TestimonialsManager />}
         {section === "faq" && <FAQManager />}
         {section === "social" && <SocialSettings />}
