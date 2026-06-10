@@ -41,6 +41,18 @@ export const siteConfig: SiteConfig = {
       "A UNNIFIBRA conecta sua casa ou empresa com velocidade, estabilidade e atendimento próximo de você.",
     ctaPrimaryText: "Contratar agora",
     ctaSecondaryText: "Ver planos",
+    heroBanners: [
+      {
+        id: "banner-1",
+        image: "/img/hero-banner-1.jpg",
+        title: "Tenha uma conexão que vai além da internet",
+        subtitle: "Fibra óptica de qualidade é com a UNNIFIBRA!",
+        buttonText: "Ver Planos",
+        buttonLink: "#planos",
+        active: true,
+        order: 1,
+      },
+    ],
   },
 
   plans: [
