@@ -13,6 +13,9 @@ import { generateWhatsAppLink } from "@/lib/whatsapp";
 // endereço, CNPJ, etc).
 // =============================================================================
 
+// FICTÍCIO - substituir pelo número oficial do WhatsApp (com DDI e DDD)
+const WHATSAPP_NUMBER = "5511999999999";
+
 export const siteConfig: SiteConfig = {
   general: {
     companyName: "UNNIFIBRA",
@@ -21,8 +24,7 @@ export const siteConfig: SiteConfig = {
       "Provedor de internet fibra óptica com planos de alta velocidade, instalação gratuita e atendimento humanizado.",
     logo: "/logo.png",
     favicon: "/favicon.ico",
-    // FICTÍCIO - substituir pelo número oficial do WhatsApp (com DDI e DDD)
-    whatsappNumber: "5511999999999",
+    whatsappNumber: WHATSAPP_NUMBER,
     email: "contato@unnifibra.com.br",
     phone: "(11) 99999-9999",
     address: "Av. Tecnologia, 1000 - Centro, Sua Cidade - UF",
