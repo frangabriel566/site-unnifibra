@@ -57,27 +57,10 @@ export default function AppearanceSettings() {
         </div>
       </AdminCard>
 
-      <AdminCard title="Seção Hero" description="Conteúdo principal exibido no topo do site.">
-        <div className="grid grid-cols-1 gap-4">
-          <Field label="Imagem do Hero (caminho do arquivo)">
-            <Input value={form.heroImage} onChange={(e) => setForm({ ...form, heroImage: e.target.value })} />
-          </Field>
-          <Field label="Título principal">
-            <Textarea rows={2} value={form.heroTitle} onChange={(e) => setForm({ ...form, heroTitle: e.target.value })} />
-          </Field>
-          <Field label="Subtítulo">
-            <Textarea rows={2} value={form.heroSubtitle} onChange={(e) => setForm({ ...form, heroSubtitle: e.target.value })} />
-          </Field>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <Field label="Texto do botão principal">
-              <Input value={form.ctaPrimaryText} onChange={(e) => setForm({ ...form, ctaPrimaryText: e.target.value })} />
-            </Field>
-            <Field label="Texto do botão secundário">
-              <Input value={form.ctaSecondaryText} onChange={(e) => setForm({ ...form, ctaSecondaryText: e.target.value })} />
-            </Field>
-          </div>
-        </div>
-      </AdminCard>
+      <AdminCard
+        title="Seção Hero"
+        description="Os banners exibidos no topo do site (imagem, título, subtítulo e botão) são gerenciados em Admin → Banners do início."
+      />
 
       <div className="flex items-center gap-3">
         <Button onClick={handleSave}>
