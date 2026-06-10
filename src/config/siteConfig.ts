@@ -45,7 +45,10 @@ export const siteConfig: SiteConfig = {
         title: "",
         subtitle: "",
         buttonText: "",
-        buttonLink: "#planos",
+        buttonLink: generateWhatsAppLink(
+          WHATSAPP_NUMBER,
+          "Olá, gostaria de falar com a UNNIFIBRA sobre os planos de internet."
+        ),
         active: true,
         order: 1,
       },
