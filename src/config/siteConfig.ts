@@ -342,6 +342,18 @@ export const siteConfig: SiteConfig = {
     },
   ],
 
+  offices: [
+    {
+      id: "loja-matriz",
+      name: "Loja Matriz UNNIFIBRA",
+      address: "Av. Tecnologia, 1000 - Centro, Sua Cidade - UF",
+      image: "/img/escritorio-matriz.jpg",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologia+1000+Centro",
+      active: true,
+      order: 1,
+    },
+  ],
+
   testimonials: [
     {
       id: "depoimento-1",
