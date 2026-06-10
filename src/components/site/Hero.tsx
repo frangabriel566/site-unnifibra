@@ -56,7 +56,7 @@ export default function Hero() {
           <img
             src={banner.image}
             alt={banner.title || siteConfig.general.companyName}
-            className="h-full w-full object-cover"
+            className={cn("h-full w-full", banner.title ? "object-cover" : "object-contain")}
           />
           {banner.title && (
             <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/85 via-brand-primary/40 to-transparent" />
