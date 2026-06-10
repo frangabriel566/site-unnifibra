@@ -157,11 +157,6 @@ export interface AppearanceConfig {
   accentColor: string;
   buttonColor: string;
   theme: "light" | "dark";
-  heroImage: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  ctaPrimaryText: string;
-  ctaSecondaryText: string;
   heroBanners: HeroBanner[];
 }
 
