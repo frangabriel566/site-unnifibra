@@ -16,6 +16,7 @@ import {
   Megaphone,
   BarChart3,
   Github,
+  GalleryHorizontal,
   LogOut,
   X,
 } from "lucide-react";
