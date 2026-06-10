@@ -34,6 +34,7 @@ export type AdminSection =
   | "loyalty"
   | "benefits"
   | "offices"
+  | "coverageCities"
   | "testimonials"
   | "faq"
   | "social"
