@@ -2,8 +2,8 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Wifi, Lock, Mail, Info } from "lucide-react";
-import { siteConfig } from "@/config/siteConfig";
+import { Lock, Mail, Info } from "lucide-react";
+import Logo from "@/components/site/Logo";
 
 export default function AdminLoginPage() {
   const router = useRouter();
