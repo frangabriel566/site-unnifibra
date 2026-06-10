@@ -28,7 +28,7 @@ export default function WhatsAppButton() {
       className="group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-emerald-900/50 transition-transform duration-300 hover:scale-110 sm:h-16 sm:w-16"
     >
       <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-75 animate-ping group-hover:opacity-0" />
-      <MessageCircle className="relative h-7 w-7 sm:h-8 sm:w-8" fill="currentColor" />
+      <WhatsAppIcon className="relative h-7 w-7 sm:h-8 sm:w-8" />
     </a>
   );
 }
