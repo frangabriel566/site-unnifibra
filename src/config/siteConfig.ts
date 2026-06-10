@@ -1,4 +1,5 @@
 import { SiteConfig } from "@/types";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 // =============================================================================
 // CONFIGURAÇÃO CENTRAL DO SITE UNNIFIBRA
