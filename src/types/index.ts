@@ -79,6 +79,16 @@ export interface FAQItem {
   order: number;
 }
 
+export interface Office {
+  id: string;
+  name: string;
+  address: string;
+  image: string;
+  mapUrl: string;
+  active: boolean;
+  order: number;
+}
+
 export interface SocialLinks {
   instagram: string;
   facebook: string;
