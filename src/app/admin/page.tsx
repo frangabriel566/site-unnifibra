@@ -51,6 +51,7 @@ export default function AdminPage() {
         {section === "dashboard" && <AdminDashboard onNavigate={setSection} />}
         {section === "general" && <GeneralSettings />}
         {section === "appearance" && <AppearanceSettings />}
+        {section === "heroBanners" && <HeroBannersManager />}
         {section === "plans" && <PlansManager />}
         {section === "promotion" && <PromotionSettings />}
         {section === "loyalty" && <LoyaltySettings />}
