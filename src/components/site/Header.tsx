@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "Planos", href: "#planos" },
   { label: "Benefícios", href: "#beneficios" },
   { label: "Cobertura", href: "#cobertura" },
+  { label: "Unidades", href: "#unidades" },
   { label: "Fidelidade", href: "#fidelidade" },
   { label: "Dúvidas", href: "#duvidas" },
   { label: "Contato", href: "#contato" },
