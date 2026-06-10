@@ -25,7 +25,8 @@ export const metadata: Metadata = {
   },
   robots: siteConfig.seo.indexable ? siteConfig.seo.robots : "noindex, nofollow",
   icons: {
-    icon: siteConfig.seo.favicon,
+    icon: [{ url: "/logo.png", type: "image/png" }, siteConfig.seo.favicon],
+    apple: "/logo.png",
   },
   openGraph: {
     title: siteConfig.seo.ogTitle,
