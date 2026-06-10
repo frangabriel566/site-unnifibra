@@ -18,6 +18,7 @@ import {
   Github,
   GalleryHorizontal,
   Building2,
+  Map,
   LogOut,
   X,
 } from "lucide-react";
