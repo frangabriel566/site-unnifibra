@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AdminConfigProvider } from "@/components/admin/AdminConfigContext";
 import AdminLayout from "@/components/admin/AdminLayout";
-import AdminSidebar, { AdminSection } from "@/components/admin/AdminSidebar";
+import { AdminSection } from "@/components/admin/AdminSidebar";
 import AdminDashboard from "@/components/admin/AdminDashboard";
 import GeneralSettings from "@/components/admin/GeneralSettings";
 import AppearanceSettings from "@/components/admin/AppearanceSettings";
