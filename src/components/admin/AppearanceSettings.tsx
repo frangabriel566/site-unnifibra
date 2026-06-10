@@ -60,7 +60,11 @@ export default function AppearanceSettings() {
       <AdminCard
         title="Seção Hero"
         description="Os banners exibidos no topo do site (imagem, título, subtítulo e botão) são gerenciados em Admin → Banners do início."
-      />
+      >
+        <p className="text-sm text-slate-500">
+          Vá até a seção <strong>Banners do início</strong> no menu lateral para editar.
+        </p>
+      </AdminCard>
 
       <div className="flex items-center gap-3">
         <Button onClick={handleSave}>
