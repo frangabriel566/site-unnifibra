@@ -23,6 +23,7 @@ export default function Home() {
         <Benefits />
         <WhyChoose />
         <Coverage />
+        <Offices />
         <LoyaltyContract />
         <Testimonials />
         <FAQ />
