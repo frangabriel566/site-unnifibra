@@ -36,8 +36,13 @@ export function AdminConfigProvider({ children }: { children: ReactNode }) {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
+        const parsed = JSON.parse(stored) as SiteConfig;
         // eslint-disable-next-line react-hooks/set-state-in-effect
-        setConfig(JSON.parse(stored));
+        setConfig({
+          ...defaultConfig,
+          ...parsed,
+          appearance: { ...defaultConfig.appearance, ...parsed.appearance },
+        });
       }
     } catch {
       // ignora erros de parsing e mantém configuração padrão
