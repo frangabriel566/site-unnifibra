@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Menu, X, Wifi } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import CTAButton from "./CTAButton";
