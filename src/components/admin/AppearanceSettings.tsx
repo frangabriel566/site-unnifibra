@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Save, Check } from "lucide-react";
 import { useAdminConfig } from "./AdminConfigContext";
-import { AdminCard, Field, Input, Textarea, Button } from "./ui";
+import { AdminCard, Field, Input, Button } from "./ui";
 
 export default function AppearanceSettings() {
   const { config, updateConfig } = useAdminConfig();
