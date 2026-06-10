@@ -192,6 +192,7 @@ export interface SiteConfig {
   loyalty: LoyaltyProgram;
   benefits: Benefit[];
   differentials: Differential[];
+  offices: Office[];
   testimonials: Testimonial[];
   faq: FAQItem[];
   social: SocialLinks;
