@@ -13,6 +13,7 @@ import PlansManager from "@/components/admin/PlansManager";
 import PromotionSettings from "@/components/admin/PromotionSettings";
 import LoyaltySettings from "@/components/admin/LoyaltySettings";
 import BenefitsManager from "@/components/admin/BenefitsManager";
+import OfficesManager from "@/components/admin/OfficesManager";
 import TestimonialsManager from "@/components/admin/TestimonialsManager";
 import FAQManager from "@/components/admin/FAQManager";
 import SocialSettings from "@/components/admin/SocialSettings";
