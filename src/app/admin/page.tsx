@@ -31,6 +31,7 @@ export default function AdminPage() {
     if (!isAuth) {
       router.replace("/admin/login");
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAuthChecked(true);
     }
   }, [router]);
