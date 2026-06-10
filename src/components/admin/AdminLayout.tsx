@@ -15,6 +15,7 @@ const SECTION_TITLES: Record<AdminSection, string> = {
   loyalty: "Fidelidade",
   benefits: "Benefícios",
   offices: "Nossos escritórios",
+  coverageCities: "Cobertura / Cidades",
   testimonials: "Depoimentos",
   faq: "Perguntas frequentes",
   social: "Redes sociais",
