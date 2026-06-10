@@ -21,9 +21,6 @@ import GoogleAdsSettings from "@/components/admin/GoogleAdsSettings";
 import AnalyticsSettings from "@/components/admin/AnalyticsSettings";
 import DeploySettings from "@/components/admin/DeploySettings";
 
-// Referência não utilizada removida; AdminSidebar é renderizado dentro de AdminLayout
-void AdminSidebar;
-
 export default function AdminPage() {
   const router = useRouter();
   const [authChecked, setAuthChecked] = useState(false);
