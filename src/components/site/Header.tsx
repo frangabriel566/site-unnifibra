@@ -39,7 +39,7 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center">
-          <Logo height={40} />
+          <Logo height={64} />
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">
