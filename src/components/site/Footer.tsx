@@ -1,5 +1,6 @@
-import { Wifi, Instagram, Facebook, Youtube, Linkedin, MapPin, Mail, Phone } from "lucide-react";
+import { Instagram, Facebook, Youtube, Linkedin, MapPin, Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
+import Logo from "./Logo";
 
 const QUICK_LINKS = [
   { label: "Início", href: "#inicio" },
