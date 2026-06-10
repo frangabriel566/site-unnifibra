@@ -370,6 +370,12 @@ export const siteConfig: SiteConfig = {
     },
   ],
 
+  coverageCities: [
+    { id: "cidade-1", name: "Sua Cidade - UF", available: true, order: 1 },
+    { id: "cidade-2", name: "Cidade Vizinha - UF", available: true, order: 2 },
+    { id: "cidade-3", name: "Outra Região - UF", available: false, order: 3 },
+  ],
+
   testimonials: [
     {
       id: "depoimento-1",
