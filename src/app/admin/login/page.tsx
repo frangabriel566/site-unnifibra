@@ -32,13 +32,10 @@ export default function AdminLoginPage() {
 
       <div className="glass relative w-full max-w-md rounded-3xl p-8">
         <div className="flex flex-col items-center text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-brand-primary shadow-lg shadow-sky-500/30">
-            <Wifi className="h-7 w-7 text-white" />
+          <div className="rounded-2xl bg-white/95 px-4 py-3 shadow-lg shadow-sky-500/30">
+            <Logo height={48} />
           </div>
-          <h1 className="mt-4 text-2xl font-extrabold text-white">
-            {siteConfig.general.companyName}
-          </h1>
-          <p className="text-sm text-slate-400">Painel administrativo</p>
+          <p className="mt-4 text-sm text-slate-400">Painel administrativo</p>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-4">
