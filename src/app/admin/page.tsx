@@ -8,6 +8,7 @@ import { AdminSection } from "@/components/admin/AdminSidebar";
 import AdminDashboard from "@/components/admin/AdminDashboard";
 import GeneralSettings from "@/components/admin/GeneralSettings";
 import AppearanceSettings from "@/components/admin/AppearanceSettings";
+import HeroBannersManager from "@/components/admin/HeroBannersManager";
 import PlansManager from "@/components/admin/PlansManager";
 import PromotionSettings from "@/components/admin/PromotionSettings";
 import LoyaltySettings from "@/components/admin/LoyaltySettings";
