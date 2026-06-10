@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, Wifi } from "lucide-react";
-import { siteConfig } from "@/config/siteConfig";
+import { Menu, X } from "lucide-react";
 import CTAButton from "./CTAButton";
+import Logo from "./Logo";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
