@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MapPin } from "lucide-react";
 import CTAButton from "./CTAButton";
 import Logo from "./Logo";
+import { useCity } from "./CityContext";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
