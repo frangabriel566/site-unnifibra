@@ -376,6 +376,14 @@ export const siteConfig: SiteConfig = {
     { id: "cidade-3", name: "Outra Região - UF", available: false, order: 3 },
   ],
 
+  // Cidades atendidas, cada uma com seu próprio WhatsApp de atendimento.
+  // O visitante escolhe a cidade e os botões de WhatsApp do site passam
+  // a apontar para o número correto.
+  serviceCities: [
+    { id: "luzilandia-pi", name: "Luzilândia-PI", whatsappNumber: "5586981608566" },
+    { id: "esperantina-pi", name: "Esperantina-PI", whatsappNumber: "5586999364046" },
+  ],
+
   testimonials: [
     {
       id: "depoimento-1",
