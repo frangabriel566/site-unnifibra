@@ -42,7 +42,7 @@ export default function Benefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="glass flex items-start gap-4 rounded-2xl p-6 transition-colors hover:border-sky-400/30"
+                className="glass flex items-start gap-4 rounded-2xl p-6 shadow-lg shadow-black/20 transition-all hover:-translate-y-1 hover:border-sky-400/30 hover:shadow-sky-500/10"
               >
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400/20 to-brand-primary/20 text-sky-400">
                   <Icon className="h-6 w-6" />
