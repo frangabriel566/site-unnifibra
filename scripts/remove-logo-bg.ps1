@@ -64,11 +64,13 @@ while ($queue.Count -gt 0) {
     $bytes[$byteIdx + 3] = 0  # alpha = 0
 
     # neighbors
-    $neighbors = @(
-        @($x - 1, $y), @($x + 1, $y), @($x, $y - 1), @($x, $y + 1)
-    )
-    foreach ($n in $neighbors) {
-        $nx = $n[0]; $ny = $n[1]
+    for ($d = 0; $d -lt 4; $d++) {
+        switch ($d) {
+            0 { $nx = $x - 1; $ny = $y }
+            1 { $nx = $x + 1; $ny = $y }
+            2 { $nx = $x; $ny = $y - 1 }
+            3 { $nx = $x; $ny = $y + 1 }
+        }
         if ($nx -ge 0 -and $nx -lt $w -and $ny -ge 0 -and $ny -lt $h) {
             $np = $ny * $w + $nx
             if (-not $visited[$np]) {
