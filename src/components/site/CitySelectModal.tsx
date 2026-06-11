@@ -41,9 +41,9 @@ export default function CitySelectModal() {
               <MapPin className="h-7 w-7 text-white" />
             </div>
 
-            <h2 className="mt-4 text-2xl font-extrabold text-white">Escolha sua cidade</h2>
+            <h2 className="mt-4 text-2xl font-extrabold text-white">Qual sua cidade?</h2>
             <p className="mx-auto mt-2 max-w-sm text-sm text-slate-300">
-              Para falar com o escritório correto, selecione a cidade onde deseja contratar.
+              Veremos se nossa rede te alcança.
             </p>
 
             <div className="mt-6 flex flex-col gap-3">
