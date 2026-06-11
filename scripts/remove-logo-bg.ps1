@@ -19,7 +19,7 @@ $data = $bmp.LockBits($rect, [System.Drawing.Imaging.ImageLockMode]::ReadWrite, 
 $bytes = New-Object byte[] ($data.Stride * $h)
 [System.Runtime.InteropServices.Marshal]::Copy($data.Scan0, $bytes, 0, $bytes.Length)
 
-$threshold = 245
+$threshold = 225
 $visited = New-Object bool[] ($w * $h)
 $queue = New-Object System.Collections.Generic.Queue[int]
 
