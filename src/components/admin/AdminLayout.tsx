@@ -75,7 +75,14 @@ export default function AdminLayout({
           <button onClick={() => setMobileOpen(true)} className="text-slate-500 lg:hidden">
             <Menu className="h-6 w-6" />
           </button>
-          <h1 className="text-lg font-bold text-slate-900">{SECTION_TITLES[active]}</h1>
+          <h1 className="flex-1 text-lg font-bold text-slate-900">{SECTION_TITLES[active]}</h1>
+          <button
+            onClick={handleSave}
+            className="flex items-center gap-2 rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-sky-600"
+          >
+            {saved ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />}
+            {saved ? "Salvo!" : "Salvar alterações"}
+          </button>
         </header>
         <main className="flex-1 p-4 lg:p-8">{children}</main>
       </div>
