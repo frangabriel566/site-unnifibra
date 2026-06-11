@@ -16,30 +16,24 @@ $src.Dispose()
 $rect = New-Object System.Drawing.Rectangle(0, 0, $w, $h)
 $data = $bmp.LockBits($rect, [System.Drawing.Imaging.ImageLockMode]::ReadWrite, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
 
-$bytes = New-Object byte[] ($data.Stride * $h)
+$bufferSize = $data.Stride * $h
+$bytes = New-Object byte[] $bufferSize
 [System.Runtime.InteropServices.Marshal]::Copy($data.Scan0, $bytes, 0, $bytes.Length)
 
 $threshold = 225
-$visited = New-Object bool[] ($w * $h)
+$stride = $data.Stride
+$total = $w * $h
+$visited = New-Object bool[] $total
 $queue = New-Object System.Collections.Generic.Queue[int]
-
-function Test-NearWhite([int]$idx) {
-    $b = $bytes[$idx]
-    $g8 = $bytes[$idx + 1]
-    $r = $bytes[$idx + 2]
-    return ($r -ge $threshold -and $g8 -ge $threshold -and $b -ge $threshold)
-}
 
 # Seed BFS from border pixels
 for ($x = 0; $x -lt $w; $x++) {
     foreach ($y in 0, ($h - 1)) {
         $p = $y * $w + $x
-        if (-not $visited[$p]) {
-            $byteIdx = $y * $data.Stride + $x * 4
-            if (Test-NearWhite $byteIdx) {
-                $visited[$p] = $true
-                $queue.Enqueue($p)
-            }
+        $byteIdx = $y * $stride + $x * 4
+        if ($bytes[$byteIdx] -ge $threshold -and $bytes[$byteIdx + 1] -ge $threshold -and $bytes[$byteIdx + 2] -ge $threshold) {
+            $visited[$p] = $true
+            $queue.Enqueue($p)
         }
     }
 }
@@ -47,8 +41,8 @@ for ($y = 0; $y -lt $h; $y++) {
     foreach ($x in 0, ($w - 1)) {
         $p = $y * $w + $x
         if (-not $visited[$p]) {
-            $byteIdx = $y * $data.Stride + $x * 4
-            if (Test-NearWhite $byteIdx) {
+            $byteIdx = $y * $stride + $x * 4
+            if ($bytes[$byteIdx] -ge $threshold -and $bytes[$byteIdx + 1] -ge $threshold -and $bytes[$byteIdx + 2] -ge $threshold) {
                 $visited[$p] = $true
                 $queue.Enqueue($p)
             }
@@ -60,25 +54,46 @@ while ($queue.Count -gt 0) {
     $p = $queue.Dequeue()
     $x = $p % $w
     $y = [int][Math]::Floor($p / $w)
-    $byteIdx = $y * $data.Stride + $x * 4
+    $byteIdx = $y * $stride + $x * 4
     $bytes[$byteIdx + 3] = 0  # alpha = 0
 
-    # neighbors
-    for ($d = 0; $d -lt 4; $d++) {
-        switch ($d) {
-            0 { $nx = $x - 1; $ny = $y }
-            1 { $nx = $x + 1; $ny = $y }
-            2 { $nx = $x; $ny = $y - 1 }
-            3 { $nx = $x; $ny = $y + 1 }
+    if ($x -gt 0) {
+        $np = $p - 1
+        if (-not $visited[$np]) {
+            $nb = $byteIdx - 4
+            if ($bytes[$nb] -ge $threshold -and $bytes[$nb + 1] -ge $threshold -and $bytes[$nb + 2] -ge $threshold) {
+                $visited[$np] = $true
+                $queue.Enqueue($np)
+            }
         }
-        if ($nx -ge 0 -and $nx -lt $w -and $ny -ge 0 -and $ny -lt $h) {
-            $np = $ny * $w + $nx
-            if (-not $visited[$np]) {
-                $nByteIdx = $ny * $data.Stride + $nx * 4
-                if (Test-NearWhite $nByteIdx) {
-                    $visited[$np] = $true
-                    $queue.Enqueue($np)
-                }
+    }
+    if ($x -lt ($w - 1)) {
+        $np = $p + 1
+        if (-not $visited[$np]) {
+            $nb = $byteIdx + 4
+            if ($bytes[$nb] -ge $threshold -and $bytes[$nb + 1] -ge $threshold -and $bytes[$nb + 2] -ge $threshold) {
+                $visited[$np] = $true
+                $queue.Enqueue($np)
+            }
+        }
+    }
+    if ($y -gt 0) {
+        $np = $p - $w
+        if (-not $visited[$np]) {
+            $nb = $byteIdx - $stride
+            if ($bytes[$nb] -ge $threshold -and $bytes[$nb + 1] -ge $threshold -and $bytes[$nb + 2] -ge $threshold) {
+                $visited[$np] = $true
+                $queue.Enqueue($np)
+            }
+        }
+    }
+    if ($y -lt ($h - 1)) {
+        $np = $p + $w
+        if (-not $visited[$np]) {
+            $nb = $byteIdx + $stride
+            if ($bytes[$nb] -ge $threshold -and $bytes[$nb + 1] -ge $threshold -and $bytes[$nb + 2] -ge $threshold) {
+                $visited[$np] = $true
+                $queue.Enqueue($np)
             }
         }
     }
