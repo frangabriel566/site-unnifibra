@@ -8,6 +8,7 @@ import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import CTAButton from "./CTAButton";
+import { useCity } from "./CityContext";
 
 const COVERAGE_MESSAGE =
   "Olá, gostaria de consultar a cobertura da UNNIFIBRA para meu endereço.";
