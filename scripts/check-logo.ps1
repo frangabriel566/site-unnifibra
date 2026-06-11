@@ -1,10 +1,9 @@
 Add-Type -AssemblyName System.Drawing
-$img = [System.Drawing.Image]::FromFile((Join-Path $PSScriptRoot "..\public\logo.png.transparent.png"))
-Write-Output "$($img.Width)x$($img.Height) $($img.PixelFormat)"
+$img = [System.Drawing.Image]::FromFile((Join-Path $PSScriptRoot "..\public\logo.png"))
 $bmp = [System.Drawing.Bitmap]$img
-$c = $bmp.GetPixel(0, 0)
-Write-Output "corner: A=$($c.A) R=$($c.R) G=$($c.G) B=$($c.B)"
-$c2 = $bmp.GetPixel(627, 627)
-Write-Output "center: A=$($c2.A) R=$($c2.R) G=$($c2.G) B=$($c2.B)"
-$c3 = $bmp.GetPixel(627, 50)
-Write-Output "top-mid: A=$($c3.A) R=$($c3.R) G=$($c3.G) B=$($c3.B)"
+$w = $bmp.Width
+$h = $bmp.Height
+foreach ($pt in @(@(0,0), @(5,5), @(0,627), @(627,0), @(1253,1253), @(1253,0), @(0,1253), @(50,50), @(627,627))) {
+    $c = $bmp.GetPixel($pt[0], $pt[1])
+    Write-Output "($($pt[0]),$($pt[1])): R=$($c.R) G=$($c.G) B=$($c.B)"
+}
