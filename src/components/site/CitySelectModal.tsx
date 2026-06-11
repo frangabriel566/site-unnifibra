@@ -2,14 +2,17 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { MapPin, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useCity } from "./CityContext";
 
 export default function CitySelectModal() {
   const { modalOpen, closeModal, cities, selectCity, city } = useCity();
+  const pathname = usePathname();
+  const isAdmin = pathname?.startsWith("/admin");
 
   return (
     <AnimatePresence>
-      {modalOpen && (
+      {modalOpen && !isAdmin && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
