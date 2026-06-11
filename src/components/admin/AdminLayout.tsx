@@ -36,11 +36,17 @@ export default function AdminLayout({
   children: ReactNode;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [saved, setSaved] = useState(false);
   const router = useRouter();
 
   const handleLogout = () => {
     localStorage.removeItem("unnifibra_admin_auth");
     router.push("/admin/login");
+  };
+
+  const handleSave = () => {
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
   };
 
   return (
