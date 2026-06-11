@@ -54,7 +54,7 @@ export const siteConfig: SiteConfig = {
       },
       {
         id: "banner-2",
-        image: "/img/banner2.png",
+        image: "/img/banner4.png",
         title: "",
         subtitle: "",
         buttonText: "",
