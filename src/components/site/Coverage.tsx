@@ -16,6 +16,7 @@ const COVERAGE_MESSAGE =
 export default function Coverage() {
   const cities = [...siteConfig.coverageCities].sort((a, b) => a.order - b.order);
   const [selected, setSelected] = useState<string | null>(null);
+  const { city, openModal } = useCity();
 
   const selectedCity = cities.find((c) => c.id === selected);
 
