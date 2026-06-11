@@ -3,9 +3,9 @@
 import { ReactNode } from "react";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
-import { siteConfig } from "@/config/siteConfig";
 import { TrackEventName } from "@/types";
 import { cn } from "@/lib/utils";
+import { useCity } from "./CityContext";
 
 interface CTAButtonProps {
   message: string;
@@ -41,14 +41,22 @@ export default function CTAButton({
   trackingEvent = "whatsapp_click",
   className,
 }: CTAButtonProps) {
-  const href = generateWhatsAppLink(siteConfig.general.whatsappNumber, message);
+  const { city, openModal } = useCity();
+  const href = city ? generateWhatsAppLink(city.whatsappNumber, message) : "#";
 
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => trackEvent(trackingEvent, { source: "website" })}
+      target={city ? "_blank" : undefined}
+      rel={city ? "noopener noreferrer" : undefined}
+      onClick={(e) => {
+        if (!city) {
+          e.preventDefault();
+          openModal();
+          return;
+        }
+        trackEvent(trackingEvent, { source: "website" });
+      }}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 active:scale-95",
         variantClasses[variant],
