@@ -11,3 +11,10 @@ export function generateWhatsAppLink(phoneNumber: string, message: string): stri
   const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${sanitizedNumber}?text=${encodedMessage}`;
 }
+
+/**
+ * Mensagem padrão usada nos botões gerais de WhatsApp do site
+ * (botão flutuante, hero, header).
+ */
+export const DEFAULT_WHATSAPP_MESSAGE =
+  "Olá! Vim pelo site da UNNIFIBRA e gostaria de saber mais sobre os planos de internet.";
