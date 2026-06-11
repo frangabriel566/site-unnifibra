@@ -22,6 +22,7 @@ const NAV_LINKS = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { city, openModal } = useCity();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
