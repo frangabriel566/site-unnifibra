@@ -119,10 +119,17 @@ export default function Coverage() {
 
           <div className="mt-8 flex justify-center">
             <a
-              href={generateWhatsAppLink(siteConfig.general.whatsappNumber, COVERAGE_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("coverage_whatsapp_click", { source: "coverage_not_listed" })}
+              href={city ? generateWhatsAppLink(city.whatsappNumber, COVERAGE_MESSAGE) : "#"}
+              target={city ? "_blank" : undefined}
+              rel={city ? "noopener noreferrer" : undefined}
+              onClick={(e) => {
+                if (!city) {
+                  e.preventDefault();
+                  openModal();
+                  return;
+                }
+                trackEvent("coverage_whatsapp_click", { source: "coverage_not_listed" });
+              }}
               className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 underline-offset-4 hover:text-sky-400 hover:underline"
             >
               <Search className="h-4 w-4" />
