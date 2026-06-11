@@ -96,6 +96,12 @@ export interface CoverageCity {
   order: number;
 }
 
+export interface ServiceCity {
+  id: string;
+  name: string;
+  whatsappNumber: string;
+}
+
 export interface SocialLinks {
   instagram: string;
   facebook: string;
