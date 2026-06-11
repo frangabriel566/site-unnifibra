@@ -103,7 +103,7 @@ export default function Hero() {
         )}
 
         {banners.length > 1 && (
-          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/30 px-3 py-2 backdrop-blur-sm sm:bottom-5">
             {banners.map((item, i) => (
               <button
                 key={item.id}
@@ -111,8 +111,8 @@ export default function Hero() {
                 aria-label={`Ir para o banner ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={cn(
-                  "h-2 rounded-full transition-all",
-                  i === index ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
+                  "h-2.5 rounded-full transition-all",
+                  i === index ? "w-7 bg-white" : "w-2.5 bg-white/40 hover:bg-white/70"
                 )}
               />
             ))}
