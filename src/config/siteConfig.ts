@@ -41,7 +41,7 @@ export const siteConfig: SiteConfig = {
     heroBanners: [
       {
         id: "banner-1",
-        image: "/img/banner1.png",
+        image: "/img/banner3.png",
         title: "",
         subtitle: "",
         buttonText: "",
