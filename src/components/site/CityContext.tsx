@@ -31,11 +31,9 @@ export function CityProvider({ children }: { children: ReactNode }) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setCity(found);
     } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setModalOpen(true);
     }
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHydrated(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
