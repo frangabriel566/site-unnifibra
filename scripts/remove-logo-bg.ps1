@@ -59,12 +59,8 @@ for ($y = 0; $y -lt $h; $y++) {
 while ($queue.Count -gt 0) {
     $p = $queue.Dequeue()
     $x = $p % $w
-    $y = [int]($p / $w)
+    $y = [int][Math]::Floor($p / $w)
     $byteIdx = $y * $data.Stride + $x * 4
-    if ($byteIdx + 3 -ge $bytes.Length -or $byteIdx -lt 0) {
-        Write-Output "BAD: p=$p x=$x y=$y byteIdx=$byteIdx len=$($bytes.Length)"
-        break
-    }
     $bytes[$byteIdx + 3] = 0  # alpha = 0
 
     # neighbors
