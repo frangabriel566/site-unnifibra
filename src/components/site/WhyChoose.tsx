@@ -24,9 +24,13 @@ export default function WhyChoose() {
           <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
             Por que escolher a {siteConfig.general.companyName}?
           </h2>
+          <p className="mt-4 text-base text-slate-300 sm:text-lg">
+            Mais do que internet, entregamos confiança, suporte próximo e conexão de
+            qualidade para sua rotina.
+          </p>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {siteConfig.differentials.map((item, index) => {
             const Icon = (Icons[item.icon as keyof typeof Icons] as LucideIcon) ?? Star;
             return (
