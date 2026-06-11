@@ -24,8 +24,12 @@ export default function Benefits() {
             Benefícios
           </span>
           <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
-            Tudo que você precisa em um só lugar
+            Internet rápida, estável e feita para o seu dia a dia
           </h2>
+          <p className="mt-4 text-base text-slate-300 sm:text-lg">
+            Com a UNNIFIBRA, você tem conexão de qualidade para trabalhar, estudar, jogar,
+            assistir e falar com quem importa.
+          </p>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
