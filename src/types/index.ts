@@ -207,6 +207,7 @@ export interface SiteConfig {
   differentials: Differential[];
   offices: Office[];
   coverageCities: CoverageCity[];
+  serviceCities: ServiceCity[];
   testimonials: Testimonial[];
   faq: FAQItem[];
   social: SocialLinks;
