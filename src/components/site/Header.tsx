@@ -96,6 +96,18 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <button
+            type="button"
+            onClick={() => {
+              openModal();
+              setMobileOpen(false);
+            }}
+            className="mt-2 flex items-center justify-center gap-1.5 rounded-full border border-white/10 px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-400"
+          >
+            <MapPin className="h-4 w-4" />
+            {city ? `Cidade: ${city.name} · Alterar cidade` : "Escolher cidade"}
+          </button>
+
           <div className="mt-2">
             <CTAButton
               message="Olá, gostaria de contratar um plano de internet da UNNIFIBRA."
