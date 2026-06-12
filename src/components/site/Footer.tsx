@@ -101,8 +101,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/5 pt-6 text-center text-sm text-slate-500">
-          © {year} {general.companyName}. Todos os direitos reservados.
+        <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/5 pt-6 text-center text-sm text-slate-500">
+          <p>
+            © {year} {general.companyName}. Todos os direitos reservados.
+          </p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/img/Anatel.webp" alt="Selo de autorização ANATEL" className="h-12 w-auto" />
         </div>
       </div>
     </footer>
