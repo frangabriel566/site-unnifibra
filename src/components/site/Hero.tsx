@@ -79,7 +79,7 @@ export default function Hero() {
               alt={banner.title || siteConfig.general.companyName}
               className={cn(
                 "hidden h-full w-full sm:block",
-                banner.title ? "object-cover" : "object-contain object-bottom"
+                banner.title ? "object-cover" : "object-contain object-bottom lg:object-cover"
               )}
             />
             {banner.title && (
