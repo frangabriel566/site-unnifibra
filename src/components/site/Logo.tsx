@@ -5,16 +5,17 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
   className?: string;
   height?: number;
+  width?: number;
 }
 
-export default function Logo({ className, height = 48 }: LogoProps) {
+export default function Logo({ className, height = 48, width }: LogoProps) {
   return (
     <Image
       src={siteConfig.general.logo}
       alt={siteConfig.general.companyName}
-      width={height * 4}
+      width={width ?? height * 4}
       height={height}
-      style={{ height, width: "auto" }}
+      style={width ? { width, height: "auto" } : { height, width: "auto" }}
       className={cn("block object-contain", className)}
       priority
     />
