@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, MapPin } from "lucide-react";
+import { Menu, X, MapPin, Instagram, Facebook } from "lucide-react";
 import CTAButton from "./CTAButton";
 import Logo from "./Logo";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { useCity } from "./CityContext";
+import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -23,6 +25,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { city, openModal } = useCity();
+  const { social } = siteConfig;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -34,39 +37,68 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full bg-brand-primary transition-all duration-300 lg:fixed lg:bg-transparent",
-        scrolled
-          ? "glass shadow-lg shadow-black/20 py-2"
-          : "py-2 lg:bg-transparent lg:py-4"
+        "sticky top-0 z-40 w-full bg-brand-primary py-2 transition-all duration-300 lg:bg-white lg:py-3 lg:shadow-md",
+        scrolled && "shadow-lg shadow-black/20 lg:shadow-lg"
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex shrink-0 items-center">
           <Logo width={125} className="lg:hidden" />
-          <Logo width={140} className="hidden lg:block" />
+          <Logo width={150} className="hidden lg:block" />
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-1 rounded-full bg-brand-primary px-2 py-2 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-200 transition-colors hover:text-sky-400"
+              className="rounded-full px-3 py-2 text-xs font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <button
             type="button"
             onClick={openModal}
-            className="flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-400"
+            className="flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:border-sky-400/40 hover:text-sky-500"
           >
             <MapPin className="h-3.5 w-3.5" />
             {city ? city.name : "Escolher cidade"}
           </button>
+
+          <div className="flex items-center gap-3 text-brand-primary">
+            <a
+              href={social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="transition-colors hover:text-sky-500"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href={social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="transition-colors hover:text-sky-500"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href={social.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="transition-colors hover:text-sky-500"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+            </a>
+          </div>
+
           <CTAButton
             message="Olá, gostaria de contratar um plano de internet da UNNIFIBRA."
             variant="primary"
