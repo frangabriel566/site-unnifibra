@@ -85,13 +85,13 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="glass mx-4 mt-2 flex flex-col gap-1 rounded-2xl p-4 lg:hidden">
+        <div className="flex flex-col gap-1 border-t border-white/10 bg-brand-primary px-4 py-3 lg:hidden">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-sky-400"
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-sky-400"
             >
               {link.label}
             </a>
@@ -102,22 +102,11 @@ export default function Header() {
               openModal();
               setMobileOpen(false);
             }}
-            className="mt-2 flex items-center justify-center gap-1.5 rounded-full border border-white/10 px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-400"
+            className="mt-1 flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-sky-400"
           >
             <MapPin className="h-4 w-4" />
             {city ? `Cidade: ${city.name} · Alterar cidade` : "Escolher cidade"}
           </button>
-
-          <div className="mt-2">
-            <CTAButton
-              message="Olá, gostaria de contratar um plano de internet da UNNIFIBRA."
-              variant="primary"
-              size="md"
-              className="w-full"
-            >
-              Contratar agora
-            </CTAButton>
-          </div>
         </div>
       )}
     </header>
