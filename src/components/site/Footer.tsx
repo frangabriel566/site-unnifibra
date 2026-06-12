@@ -1,16 +1,6 @@
-import { Instagram, Facebook, Youtube, Linkedin, MapPin, Mail, Phone } from "lucide-react";
+import { Instagram, Facebook, Youtube, Linkedin } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import Logo from "./Logo";
-
-const QUICK_LINKS = [
-  { label: "Início", href: "#inicio" },
-  { label: "Promoção", href: "#promocao" },
-  { label: "Planos", href: "#planos" },
-  { label: "Benefícios", href: "#beneficios" },
-  { label: "Cobertura", href: "#cobertura" },
-  { label: "Fidelidade", href: "#fidelidade" },
-  { label: "Dúvidas", href: "#duvidas" },
-];
 
 // Ícone simples do TikTok (não disponível na lucide-react)
 function TikTokIcon({ className }: { className?: string }) {
@@ -36,12 +26,12 @@ export default function Footer() {
   return (
     <footer id="contato" className="relative border-t border-white/5 bg-[#03070f] py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+          <div className="flex flex-col items-center lg:items-start">
             <div className="flex items-center rounded-xl bg-white/95 px-3 py-2 w-fit">
               <Logo height={36} />
             </div>
-            <p className="mt-4 text-sm text-slate-400">{general.description}</p>
+            <p className="mt-4 max-w-sm text-sm text-slate-400">{general.description}</p>
             <div className="mt-5 flex gap-3">
               {socialLinks.map((item) => (
                 <a
@@ -58,55 +48,16 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="font-bold text-white">Links rápidos</h3>
-            <ul className="mt-4 space-y-2">
-              {QUICK_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-sky-400"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-white">Contato</h3>
-            <ul className="mt-4 space-y-3 text-sm text-slate-400">
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-400" />
-                {general.address}
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 flex-shrink-0 text-sky-400" />
-                {general.phone}
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 flex-shrink-0 text-sky-400" />
-                {general.email}
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-white">Informações</h3>
-            <ul className="mt-4 space-y-2 text-sm text-slate-400">
-              <li>{general.attendanceHours}</li>
-              <li>CNPJ: {general.cnpj}</li>
-            </ul>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/img/Anatel.webp"
+            alt="Selo de autorização ANATEL"
+            className="h-24 w-auto lg:h-28"
+          />
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/5 pt-6 text-center text-sm text-slate-500">
-          <p>
-            © {year} {general.companyName}. Todos os direitos reservados.
-          </p>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/img/Anatel.webp" alt="Selo de autorização ANATEL" className="h-12 w-auto" />
+        <div className="mt-12 border-t border-white/5 pt-6 text-center text-sm text-slate-500">
+          © {year} {general.companyName}. Todos os direitos reservados.
         </div>
       </div>
     </footer>
