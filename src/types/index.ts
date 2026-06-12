@@ -166,6 +166,7 @@ export interface GitHubDeployConfig {
 export interface HeroBanner {
   id: string;
   image: string;
+  mobileImage?: string;
   title: string;
   subtitle: string;
   buttonText: string;
