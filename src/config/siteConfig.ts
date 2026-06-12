@@ -270,13 +270,22 @@ export const siteConfig: SiteConfig = {
 
   offices: [
     {
-      id: "loja-matriz",
-      name: "Loja Matriz UNNIFIBRA",
-      address: "Av. Tecnologia, 1000 - Centro, Sua Cidade - UF",
-      image: "/img/escritorio-matriz.jpg",
-      mapUrl: "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologia+1000+Centro",
+      id: "loja-luzilandia",
+      name: "UNNIFIBRA Luzilândia-PI",
+      address: "Rua José de Melo, Nº 911, Centro, Luzilândia - PI",
+      image: "/img/lojaluzi.png",
+      mapUrl: "https://www.google.com/maps?q=-3.463655710220337,-42.369441986083984&z=17&hl=pt-BR",
       active: true,
       order: 1,
+    },
+    {
+      id: "loja-esperantina",
+      name: "UNNIFIBRA Esperantina-PI",
+      address: "Avenida Petrônio Portela, Nº 1874, ao lado do Orra Açaí, Esperantina - PI",
+      image: "/img/lojaesperantina.png",
+      mapUrl: "https://www.google.com/maps?q=-3.8877620697021484,-42.23677062988281&z=17&hl=pt-BR",
+      active: true,
+      order: 2,
     },
   ],
 
