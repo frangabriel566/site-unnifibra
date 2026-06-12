@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full overflow-visible bg-brand-primary py-2 transition-all duration-300 lg:h-[86px] lg:py-0",
+        "sticky top-0 z-40 flex h-16 w-full items-center overflow-visible bg-brand-primary py-0 transition-all duration-300 lg:h-[86px]",
         scrolled && "shadow-lg shadow-black/20"
       )}
     >
