@@ -37,7 +37,7 @@ export default function Header() {
         "sticky top-0 z-40 w-full bg-brand-primary transition-all duration-300 lg:fixed lg:bg-transparent",
         scrolled
           ? "glass shadow-lg shadow-black/20 py-2"
-          : "lg:bg-transparent py-3 lg:py-4"
+          : "py-2 lg:bg-transparent lg:py-4"
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
