@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
     logo: "/logo.png",
     favicon: "/favicon.ico",
     whatsappNumber: WHATSAPP_NUMBER,
-    email: "contato@unnifibra.com.br",
+    email: "unnifibraprovedor@gmail.com",
     phone: "(11) 99999-9999",
     address: "Av. Tecnologia, 1000 - Centro, Sua Cidade - UF",
     cnpj: "00.000.000/0001-00",
