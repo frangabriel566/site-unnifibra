@@ -40,11 +40,21 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
               <li className="flex items-start justify-center gap-2 sm:justify-start">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-400" />
-                {general.address}
+                <span>
+                  <strong className="text-white">Luzilândia:</strong> Rua José de Melo, Nº 911,
+                  Centro, Luzilândia - PI
+                </span>
               </li>
               <li className="flex items-center justify-center gap-2 sm:justify-start">
                 <Phone className="h-4 w-4 flex-shrink-0 text-sky-400" />
                 Luzilândia: 86 98160-8566
+              </li>
+              <li className="flex items-start justify-center gap-2 sm:justify-start">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-400" />
+                <span>
+                  <strong className="text-white">Esperantina:</strong> Avenida Petrônio Portela,
+                  Nº 1874, ao lado do Orra Açaí, Esperantina - PI
+                </span>
               </li>
               <li className="flex items-center justify-center gap-2 sm:justify-start">
                 <Phone className="h-4 w-4 flex-shrink-0 text-sky-400" />
