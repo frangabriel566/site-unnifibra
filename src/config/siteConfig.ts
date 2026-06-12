@@ -243,52 +243,28 @@ export const siteConfig: SiteConfig = {
 
   differentials: [
     {
-      id: "atendimento-proximo",
+      id: "atendimento-humanizado",
       icon: "Users",
-      title: "Atendimento próximo e humanizado",
-      description: "Falamos a sua língua e estamos perto de você.",
+      title: "Atendimento humanizado",
+      description: "Suporte próximo e rápido.",
     },
     {
       id: "conexao-estavel",
       icon: "Signal",
       title: "Conexão estável",
-      description: "Fibra óptica com qualidade para manter você sempre conectado.",
+      description: "Internet de qualidade para sua rotina.",
     },
     {
       id: "planos-acessiveis",
       icon: "Wallet",
       title: "Planos acessíveis",
-      description: "Opções pensadas para diferentes necessidades e bolsos.",
+      description: "Opções que cabem no seu bolso.",
     },
     {
       id: "instalacao-agil",
       icon: "Rocket",
       title: "Instalação ágil",
-      description: "Equipe preparada para colocar sua internet para funcionar rapidamente.",
-    },
-    {
-      id: "suporte-rapido",
-      icon: "Timer",
-      title: "Suporte rápido",
-      description: "Ajuda pelo WhatsApp sempre que você precisar.",
-    },
-    {
-      id: "sem-burocracia",
-      icon: "FileCheck",
-      title: "Sem burocracia",
-      description: "Contratação simples, prática e direta.",
-    },
-    {
-      id: "casa-empresa",
-      icon: "Building2",
-      title: "Internet para casa e empresa",
-      description: "Planos para residências, comércios e pequenos negócios.",
-    },
-    {
-      id: "promocao-3-meses",
-      icon: "Tag",
-      title: "Promoção nos 3 primeiros meses",
-      description: "Condições especiais para você começar economizando.",
+      description: "Sua internet funcionando rapidamente.",
     },
   ],
 
