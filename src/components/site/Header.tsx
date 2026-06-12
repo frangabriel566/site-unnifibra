@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full bg-brand-primary py-2 transition-all duration-300 lg:py-10",
+        "sticky top-0 z-40 w-full bg-brand-primary py-2 transition-all duration-300 lg:py-4",
         scrolled && "shadow-lg shadow-black/20"
       )}
     >
