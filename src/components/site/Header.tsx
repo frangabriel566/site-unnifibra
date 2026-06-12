@@ -37,14 +37,14 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full bg-brand-primary py-2 transition-all duration-300 lg:h-[86px] lg:py-0",
+        "sticky top-0 z-40 w-full overflow-visible bg-brand-primary py-2 transition-all duration-300 lg:h-[86px] lg:py-0",
         scrolled && "shadow-lg shadow-black/20"
       )}
     >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <a href="#inicio" className="flex shrink-0 items-center">
+      <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 overflow-visible px-4 sm:px-6 lg:px-8">
+        <a href="#inicio" className="flex shrink-0 items-center overflow-visible">
           <Logo width={125} className="lg:hidden" />
-          <Logo height={76} className="hidden lg:block" />
+          <Logo width={130} className="hidden lg:block" />
         </a>
 
         <nav className="hidden items-center gap-4 lg:flex">
