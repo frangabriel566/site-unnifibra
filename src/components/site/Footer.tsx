@@ -44,7 +44,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center justify-center gap-2 sm:justify-start">
                 <Phone className="h-4 w-4 flex-shrink-0 text-sky-400" />
-                {general.phone}
+                Luzilândia: 86 98160-8566
+              </li>
+              <li className="flex items-center justify-center gap-2 sm:justify-start">
+                <Phone className="h-4 w-4 flex-shrink-0 text-sky-400" />
+                Esperantina: 86 99936-4046
               </li>
               <li className="flex items-center justify-center gap-2 sm:justify-start">
                 <Mail className="h-4 w-4 flex-shrink-0 text-sky-400" />
