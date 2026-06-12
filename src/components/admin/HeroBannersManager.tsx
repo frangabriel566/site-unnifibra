@@ -91,7 +91,7 @@ export default function HeroBannersManager() {
         <AdminCard key={banner.id}>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <div className="lg:col-span-1">
-              <Field label="Imagem (caminho ou URL)">
+              <Field label="Imagem desktop (caminho ou URL)">
                 <Input
                   value={banner.image}
                   onChange={(e) => update(banner.id, { image: e.target.value })}
@@ -107,6 +107,25 @@ export default function HeroBannersManager() {
                   (e.target as HTMLImageElement).style.opacity = "0.2";
                 }}
               />
+
+              <Field label="Imagem mobile (1080x1350 ou 1080x1200, opcional)" className="mt-4">
+                <Input
+                  value={banner.mobileImage ?? ""}
+                  onChange={(e) => update(banner.id, { mobileImage: e.target.value })}
+                  placeholder="/img/banner1-mobile.jpg"
+                />
+              </Field>
+              {banner.mobileImage && (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={banner.mobileImage}
+                  alt={banner.title}
+                  className="mt-2 aspect-[4/5] w-full max-w-[180px] rounded-lg border border-slate-200 object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.opacity = "0.2";
+                  }}
+                />
+              )}
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-2">
