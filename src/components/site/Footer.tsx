@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/img/Anatel.webp"
+            src="/img/Anatel.png"
             alt="Selo de autorização ANATEL"
             className="h-24 w-auto lg:h-28"
           />
