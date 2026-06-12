@@ -76,7 +76,9 @@ export default function HeroBannersManager() {
           <ImageIcon className="mt-0.5 h-4 w-4 flex-shrink-0" />
           Envie as imagens para a pasta <code className="font-mono">public/img</code> do
           projeto e informe o caminho (ex: <code className="font-mono">/img/banner1.jpg</code>)
-          ou cole a URL completa de uma imagem hospedada externamente.
+          ou cole a URL completa de uma imagem hospedada externamente. Para o celular, envie uma
+          imagem vertical (1080x1350 ou 1080x1200) com poucos textos, destacando logo, promoção e
+          chamada para o WhatsApp.
         </p>
       </AdminCard>
 
