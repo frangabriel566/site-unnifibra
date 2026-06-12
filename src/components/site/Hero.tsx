@@ -89,7 +89,7 @@ export default function Hero() {
         </AnimatePresence>
 
         {banner.title && (
-          <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:translate-y-10 lg:px-8">
+          <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8">
             <motion.div
               key={`${banner.id}-text`}
               initial={{ opacity: 0, y: 30 }}
