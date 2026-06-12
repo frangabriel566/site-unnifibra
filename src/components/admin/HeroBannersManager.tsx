@@ -9,6 +9,7 @@ function emptyBanner(order: number): HeroBanner {
   return {
     id: `banner-${Date.now()}`,
     image: "/img/hero-banner-1.jpg",
+    mobileImage: "",
     title: "Tenha uma conexão que vai além da internet",
     subtitle: "Fibra óptica de qualidade é com a UNNIFIBRA!",
     buttonText: "Ver Planos",
