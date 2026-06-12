@@ -37,11 +37,11 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 flex h-16 w-full items-center overflow-visible bg-brand-primary py-0 transition-all duration-300 lg:h-[86px]",
+        "sticky top-0 z-40 h-16 w-full overflow-visible bg-brand-primary py-0 transition-all duration-300 lg:h-[86px]",
         scrolled && "shadow-lg shadow-black/20"
       )}
     >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 overflow-visible px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between gap-4 overflow-visible px-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex shrink-0 items-center overflow-visible">
           <Logo width={105} className="lg:hidden" />
           <Logo width={155} className="hidden lg:block" />
