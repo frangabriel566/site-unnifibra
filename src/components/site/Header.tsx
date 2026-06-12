@@ -37,8 +37,8 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full bg-brand-primary py-2 transition-all duration-300 lg:bg-white lg:py-3 lg:shadow-md",
-        scrolled && "shadow-lg shadow-black/20 lg:shadow-lg"
+        "sticky top-0 z-40 w-full bg-brand-primary py-2 transition-all duration-300 lg:py-3",
+        scrolled && "shadow-lg shadow-black/20"
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -47,12 +47,12 @@ export default function Header() {
           <Logo width={150} className="hidden lg:block" />
         </a>
 
-        <nav className="hidden items-center gap-1 rounded-full bg-brand-primary px-2 py-2 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 text-xs font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+              className="text-sm font-medium text-slate-200 transition-colors hover:text-sky-400"
             >
               {link.label}
             </a>
@@ -63,19 +63,19 @@ export default function Header() {
           <button
             type="button"
             onClick={openModal}
-            className="flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:border-sky-400/40 hover:text-sky-500"
+            className="flex items-center gap-1.5 rounded-md border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-400"
           >
             <MapPin className="h-3.5 w-3.5" />
             {city ? city.name : "Escolher cidade"}
           </button>
 
-          <div className="flex items-center gap-3 text-brand-primary">
+          <div className="flex items-center gap-3 text-slate-300">
             <a
               href={social.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="transition-colors hover:text-sky-500"
+              className="transition-colors hover:text-sky-400"
             >
               <Instagram className="h-5 w-5" />
             </a>
@@ -84,7 +84,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="transition-colors hover:text-sky-500"
+              className="transition-colors hover:text-sky-400"
             >
               <Facebook className="h-5 w-5" />
             </a>
@@ -93,7 +93,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="transition-colors hover:text-sky-500"
+              className="transition-colors hover:text-sky-400"
             >
               <WhatsAppIcon className="h-5 w-5" />
             </a>
@@ -103,6 +103,7 @@ export default function Header() {
             message="Olá, gostaria de contratar um plano de internet da UNNIFIBRA."
             variant="primary"
             size="sm"
+            className="rounded-md"
           >
             Contratar agora
           </CTAButton>
