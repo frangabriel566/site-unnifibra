@@ -34,15 +34,15 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 z-40 w-full transition-all duration-300",
+        "sticky top-0 z-40 w-full bg-brand-primary transition-all duration-300 lg:fixed lg:bg-transparent",
         scrolled
           ? "glass shadow-lg shadow-black/20 py-2"
-          : "bg-transparent py-4"
+          : "lg:bg-transparent py-3 lg:py-4"
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex shrink-0 items-center">
-          <Logo width={140} />
+          <Logo width={120} className="lg:w-[140px]" />
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">
