@@ -55,6 +55,18 @@ export default function LeadsManager() {
                   <Badge tone="green">{countFor(city.id, megas)} leads hoje</Badge>
                 </li>
               ))}
+              <li className="flex items-center justify-between border-t border-slate-100 pt-2">
+                <span className="text-slate-700">Outros cliques (sem plano)</span>
+                <Badge>{countFor(city.id, 0)} leads hoje</Badge>
+              </li>
+              <li className="flex items-center justify-between border-t border-slate-100 pt-2 font-semibold">
+                <span className="text-slate-900">Total hoje</span>
+                <Badge tone="green">
+                  {PLAN_MEGAS.reduce((sum, m) => sum + countFor(city.id, m), 0) +
+                    countFor(city.id, 0)}{" "}
+                  leads
+                </Badge>
+              </li>
             </ul>
           </AdminCard>
         ))}
