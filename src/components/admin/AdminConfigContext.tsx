@@ -7,16 +7,17 @@ import {
   useState,
   ReactNode,
   useCallback,
+  useRef,
 } from "react";
 import { siteConfig as defaultConfig } from "@/config/siteConfig";
 import { SiteConfig } from "@/types";
-
-const STORAGE_KEY = "unnifibra_admin_config";
 
 interface AdminConfigContextValue {
   config: SiteConfig;
   updateConfig: (updater: (config: SiteConfig) => SiteConfig) => void;
   resetConfig: () => void;
+  saving: boolean;
+  saveError: string | null;
 }
 
 const AdminConfigContext = createContext<AdminConfigContextValue | null>(null);
@@ -24,51 +25,84 @@ const AdminConfigContext = createContext<AdminConfigContextValue | null>(null);
 /**
  * Provedor de configuração do painel administrativo.
  *
- * Hoje as alterações são salvas em localStorage (simulação de persistência).
- * Futuramente, `updateConfig` pode ser adaptado para chamar uma API
- * conectada a um banco de dados (Supabase, PostgreSQL/Prisma, etc).
+ * As alterações são carregadas e persistidas via `/api/config`,
+ * que lê e grava a configuração no Supabase. O mesmo endpoint
+ * alimenta o site público, garantindo que as duas pontas fiquem
+ * sincronizadas.
  */
 export function AdminConfigProvider({ children }: { children: ReactNode }) {
   const [config, setConfig] = useState<SiteConfig>(defaultConfig);
   const [loaded, setLoaded] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored) as SiteConfig;
-        // eslint-disable-next-line react-hooks/set-state-in-effect
+    let cancelled = false;
+
+    fetch("/api/config")
+      .then((res) => res.json())
+      .then((data: SiteConfig) => {
+        if (cancelled) return;
         setConfig({
           ...defaultConfig,
-          ...parsed,
-          appearance: { ...defaultConfig.appearance, ...parsed.appearance },
+          ...data,
+          appearance: { ...defaultConfig.appearance, ...data.appearance },
         });
-      }
-    } catch {
-      // ignora erros de parsing e mantém configuração padrão
-    }
-    setLoaded(true);
+      })
+      .catch(() => {
+        // mantém a configuração padrão em caso de falha
+      })
+      .finally(() => {
+        if (!cancelled) setLoaded(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  useEffect(() => {
-    if (!loaded) return;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
-  }, [config, loaded]);
+  const persist = useCallback((next: SiteConfig) => {
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(async () => {
+      setSaving(true);
+      setSaveError(null);
+      try {
+        const res = await fetch("/api/config", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(next),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => null);
+          throw new Error(data?.error || "Erro ao salvar configuração.");
+        }
+      } catch (error) {
+        setSaveError(error instanceof Error ? error.message : "Erro ao salvar configuração.");
+      } finally {
+        setSaving(false);
+      }
+    }, 500);
+  }, []);
 
   const updateConfig = useCallback(
     (updater: (config: SiteConfig) => SiteConfig) => {
-      setConfig((prev) => updater(structuredClone(prev)));
+      setConfig((prev) => {
+        const next = updater(structuredClone(prev));
+        if (loaded) persist(next);
+        return next;
+      });
     },
-    []
+    [loaded, persist]
   );
 
   const resetConfig = useCallback(() => {
     setConfig(defaultConfig);
-    localStorage.removeItem(STORAGE_KEY);
-  }, []);
+    persist(defaultConfig);
+  }, [persist]);
 
   return (
-    <AdminConfigContext.Provider value={{ config, updateConfig, resetConfig }}>
+    <AdminConfigContext.Provider value={{ config, updateConfig, resetConfig, saving, saveError }}>
       {children}
     </AdminConfigContext.Provider>
   );
