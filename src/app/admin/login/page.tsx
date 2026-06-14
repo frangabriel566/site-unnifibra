@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, Mail, Info } from "lucide-react";
+import { Lock, Mail } from "lucide-react";
 import Logo from "@/components/site/Logo";
 
 export default function AdminLoginPage() {
@@ -10,8 +10,9 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -19,10 +20,30 @@ export default function AdminLoginPage() {
       return;
     }
 
-    // Autenticação simulada/local. Futuramente substituir por
-    // Supabase Auth, Firebase Auth ou NextAuth.
-    localStorage.setItem("unnifibra_admin_auth", "true");
-    router.push("/admin");
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Não foi possível entrar.");
+        return;
+      }
+
+      localStorage.setItem("unnifibra_admin_auth", "true");
+      router.push("/admin");
+    } catch {
+      setError("Erro de conexão. Tente novamente.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
