@@ -92,9 +92,18 @@ export default function Header() {
               <Facebook className="h-5 w-5" />
             </a>
             <a
-              href={social.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={city ? generateWhatsAppLink(city.whatsappNumber, DEFAULT_WHATSAPP_MESSAGE) : "#"}
+              target={city ? "_blank" : undefined}
+              rel={city ? "noopener noreferrer" : undefined}
+              onClick={(e) => {
+                if (!city) {
+                  e.preventDefault();
+                  openModal();
+                  return;
+                }
+                trackEvent("whatsapp_click", { source: "header_icon" });
+                recordLead(city.id, city.name, 0);
+              }}
               aria-label="WhatsApp"
               className="transition-colors hover:text-sky-400"
             >
