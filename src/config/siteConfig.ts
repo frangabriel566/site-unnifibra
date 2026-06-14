@@ -487,10 +487,10 @@ export const siteConfig: SiteConfig = {
   },
 
   github: {
-    repositoryUrl: "https://github.com/seu-usuario/unnifibra",
+    repositoryUrl: "https://github.com/frangabriel566/site-unnifibra",
     mainBranch: "main",
-    deployStatus: "Não publicado",
-    vercelUrl: "https://unnifibra.vercel.app",
+    deployStatus: "Publicado",
+    vercelUrl: "https://site-unnifibra-lemon.vercel.app",
     lastUpdate: new Date().toISOString(),
   },
 };
