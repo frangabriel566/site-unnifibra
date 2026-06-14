@@ -57,6 +57,7 @@ const MENU: { id: AdminSection; label: string; icon: React.ElementType }[] = [
   { id: "benefits", label: "Benefícios", icon: Sparkles },
   { id: "offices", label: "Nossos escritórios", icon: Building2 },
   { id: "coverageCities", label: "Cobertura / Cidades", icon: Map },
+  { id: "leads", label: "Leads diários", icon: Users },
   { id: "testimonials", label: "Depoimentos", icon: MessageSquareQuote },
   { id: "faq", label: "FAQ", icon: HelpCircle },
   { id: "social", label: "Redes sociais", icon: Share2 },
