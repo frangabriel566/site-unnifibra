@@ -92,20 +92,12 @@ export default function AdminLoginPage() {
 
           <button
             type="submit"
-            className="w-full rounded-xl bg-gradient-to-r from-sky-400 to-brand-primary py-3 text-sm font-bold text-white shadow-lg shadow-sky-500/30 transition-all hover:brightness-110"
+            disabled={loading}
+            className="w-full rounded-xl bg-gradient-to-r from-sky-400 to-brand-primary py-3 text-sm font-bold text-white shadow-lg shadow-sky-500/30 transition-all hover:brightness-110 disabled:opacity-60"
           >
-            Entrar
+            {loading ? "Entrando..." : "Entrar"}
           </button>
         </form>
-
-        <div className="mt-6 flex items-start gap-2 rounded-xl border border-sky-400/20 bg-sky-400/5 p-3 text-xs text-sky-200">
-          <Info className="mt-0.5 h-4 w-4 flex-shrink-0" />
-          <p>
-            Esta é uma autenticação simulada para fins de demonstração. A
-            integração com autenticação real (Supabase, Firebase ou NextAuth)
-            poderá ser feita futuramente.
-          </p>
-        </div>
       </div>
     </div>
   );
