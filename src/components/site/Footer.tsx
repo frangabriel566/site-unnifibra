@@ -73,7 +73,7 @@ export default function Footer() {
               <li className="font-semibold text-slate-300">{general.legalName}</li>
               <li>CNPJ: {general.cnpj}</li>
               <li className="mt-3 font-semibold text-slate-300">Horário de Funcionamento</li>
-              <li>{general.attendanceHours}</li>
+              <li className="whitespace-pre-line">{general.attendanceHours}</li>
             </ul>
           </div>
 
