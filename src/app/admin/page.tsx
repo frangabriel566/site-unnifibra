@@ -61,6 +61,7 @@ export default function AdminPage() {
         {section === "benefits" && <BenefitsManager />}
         {section === "offices" && <OfficesManager />}
         {section === "coverageCities" && <CoverageCitiesManager />}
+        {section === "leads" && <LeadsManager />}
         {section === "testimonials" && <TestimonialsManager />}
         {section === "faq" && <FAQManager />}
         {section === "social" && <SocialSettings />}
