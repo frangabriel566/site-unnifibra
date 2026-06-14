@@ -22,6 +22,7 @@ export default function WhatsAppButton() {
           return;
         }
         trackEvent("whatsapp_click", { source: "floating_button" });
+        recordLead(city.id, city.name, 0);
       }}
       aria-label="Falar no WhatsApp"
       className="group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-emerald-900/50 transition-transform duration-300 hover:scale-110 sm:h-16 sm:w-16"
