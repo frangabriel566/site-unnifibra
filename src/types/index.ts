@@ -196,6 +196,7 @@ export interface GeneralConfig {
   address: string;
   cnpj: string;
   attendanceHours: string;
+  legalName: string;
 }
 
 export interface SiteConfig {
