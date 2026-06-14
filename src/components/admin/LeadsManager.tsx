@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { RefreshCw } from "lucide-react";
 import { AdminCard, Button, Badge } from "./ui";
 import { siteConfig } from "@/config/siteConfig";
-import { LeadRecord } from "@/lib/leads";
+import { LeadRecord } from "@/types";
 
 const PLAN_MEGAS = [400, 500, 600, 800];
 
