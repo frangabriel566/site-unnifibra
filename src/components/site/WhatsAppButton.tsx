@@ -2,6 +2,7 @@
 
 import { generateWhatsAppLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
+import { recordLead } from "@/lib/leadClient";
 import { useCity } from "./CityContext";
 import WhatsAppIcon from "./WhatsAppIcon";
 
