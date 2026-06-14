@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   Wifi,
   MessageCircle,
@@ -13,6 +14,7 @@ import {
 import { useAdminConfig } from "./AdminConfigContext";
 import { AdminCard, Badge } from "./ui";
 import { AdminSection } from "./AdminSidebar";
+import { LeadRecord } from "@/types";
 
 export default function AdminDashboard({
   onNavigate,
@@ -20,10 +22,19 @@ export default function AdminDashboard({
   onNavigate: (section: AdminSection) => void;
 }) {
   const { config } = useAdminConfig();
+  const [leadCount, setLeadCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/leads")
+      .then((res) => res.json())
+      .then((data: { records: LeadRecord[] }) => {
+        const total = data.records.reduce((sum, record) => sum + record.count, 0);
+        setLeadCount(total);
+      })
+      .catch(() => setLeadCount(0));
+  }, []);
 
   const activePlans = config.plans.filter((p) => p.active).length;
-  // Cliques simulados no WhatsApp (apenas demonstrativo)
-  const simulatedClicks = 128;
 
   const cards = [
     {
@@ -33,8 +44,8 @@ export default function AdminDashboard({
       color: "text-sky-500 bg-sky-50",
     },
     {
-      label: "Cliques no WhatsApp (simulado)",
-      value: simulatedClicks,
+      label: "Contatos via WhatsApp",
+      value: leadCount ?? "...",
       icon: MessageCircle,
       color: "text-emerald-500 bg-emerald-50",
     },
