@@ -89,6 +89,7 @@ export default function PlanCard({ plan, index }: PlanCardProps) {
         size="md"
         trackingEvent="plan_whatsapp_click"
         className="mt-8 w-full"
+        megas={parseInt(plan.speed, 10) || undefined}
       >
         Quero esse plano
       </CTAButton>
