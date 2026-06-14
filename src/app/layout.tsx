@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { siteConfig } from "@/config/siteConfig";
 import { CityProvider } from "@/components/site/CityContext";
 import CitySelectModal from "@/components/site/CitySelectModal";
+import SiteConfigProvider from "@/components/site/SiteConfigProvider";
+import { getMergedSiteConfig } from "@/lib/configStore";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,45 +17,52 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: siteConfig.seo.title,
-  description: siteConfig.seo.description,
-  keywords: siteConfig.seo.keywords,
-  authors: [{ name: siteConfig.seo.author }],
-  metadataBase: new URL(siteConfig.seo.canonicalUrl),
-  alternates: {
-    canonical: siteConfig.seo.canonicalUrl,
-  },
-  robots: siteConfig.seo.indexable ? siteConfig.seo.robots : "noindex, nofollow",
-  icons: {
-    icon: [{ url: "/logo.png", type: "image/png" }, siteConfig.seo.favicon],
-    apple: "/logo.png",
-  },
-  openGraph: {
-    title: siteConfig.seo.ogTitle,
-    description: siteConfig.seo.ogDescription,
-    images: [siteConfig.seo.ogImage],
-    url: siteConfig.seo.canonicalUrl,
-    siteName: siteConfig.general.companyName,
-    locale: "pt_BR",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.seo.ogTitle,
-    description: siteConfig.seo.ogDescription,
-    images: [siteConfig.seo.ogImage],
-  },
-  other: siteConfig.integrations.googleSearchConsoleVerification
-    ? { "google-site-verification": siteConfig.integrations.googleSearchConsoleVerification }
-    : undefined,
-};
+export const dynamic = "force-dynamic";
 
-export default function RootLayout({
+export async function generateMetadata(): Promise<Metadata> {
+  const siteConfig = await getMergedSiteConfig();
+
+  return {
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
+    keywords: siteConfig.seo.keywords,
+    authors: [{ name: siteConfig.seo.author }],
+    metadataBase: new URL(siteConfig.seo.canonicalUrl),
+    alternates: {
+      canonical: siteConfig.seo.canonicalUrl,
+    },
+    robots: siteConfig.seo.indexable ? siteConfig.seo.robots : "noindex, nofollow",
+    icons: {
+      icon: [{ url: "/logo.png", type: "image/png" }, siteConfig.seo.favicon],
+      apple: "/logo.png",
+    },
+    openGraph: {
+      title: siteConfig.seo.ogTitle,
+      description: siteConfig.seo.ogDescription,
+      images: [siteConfig.seo.ogImage],
+      url: siteConfig.seo.canonicalUrl,
+      siteName: siteConfig.general.companyName,
+      locale: "pt_BR",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteConfig.seo.ogTitle,
+      description: siteConfig.seo.ogDescription,
+      images: [siteConfig.seo.ogImage],
+    },
+    other: siteConfig.integrations.googleSearchConsoleVerification
+      ? { "google-site-verification": siteConfig.integrations.googleSearchConsoleVerification }
+      : undefined,
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteConfig = await getMergedSiteConfig();
   const { analytics, googleAds, metaPixel, tiktokPixel, integrations } = siteConfig;
   const gtagId = analytics.measurementId || googleAds.conversionId;
 
@@ -64,10 +72,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <CityProvider>
-          {children}
-          <CitySelectModal />
-        </CityProvider>
+        <SiteConfigProvider config={siteConfig}>
+          <CityProvider>
+            {children}
+            <CitySelectModal />
+          </CityProvider>
+        </SiteConfigProvider>
 
         {/* Google Tag Manager */}
         {integrations.googleTagManagerId && (
