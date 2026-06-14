@@ -36,6 +36,7 @@ export type AdminSection =
   | "benefits"
   | "offices"
   | "coverageCities"
+  | "leads"
   | "testimonials"
   | "faq"
   | "social"
