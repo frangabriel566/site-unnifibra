@@ -19,6 +19,7 @@ import {
   GalleryHorizontal,
   Building2,
   Map,
+  Users,
   LogOut,
   X,
 } from "lucide-react";
