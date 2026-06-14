@@ -15,6 +15,7 @@ interface CTAButtonProps {
   icon?: ReactNode;
   trackingEvent?: TrackEventName;
   className?: string;
+  megas?: number;
 }
 
 const variantClasses: Record<NonNullable<CTAButtonProps["variant"]>, string> = {
