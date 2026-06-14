@@ -119,7 +119,7 @@ export const siteConfig: SiteConfig = {
     {
       id: "plano-600mb",
       name: "Plano 600MB",
-      speed: "600 Mbps",
+      speed: "600 Megas",
       normalPrice: 99.9,
       promoPrice: 59.9,
       promoDurationMonths: 3,
