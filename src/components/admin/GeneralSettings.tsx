@@ -25,6 +25,9 @@ export default function GeneralSettings() {
         <Field label="Nome do provedor">
           <Input value={form.companyName} onChange={(e) => setForm({ ...form, companyName: e.target.value })} />
         </Field>
+        <Field label="Razão social (rodapé)">
+          <Input value={form.legalName} onChange={(e) => setForm({ ...form, legalName: e.target.value })} />
+        </Field>
         <Field label="Slogan">
           <Input value={form.slogan} onChange={(e) => setForm({ ...form, slogan: e.target.value })} />
         </Field>
