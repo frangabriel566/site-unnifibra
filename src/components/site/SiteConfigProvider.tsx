@@ -33,5 +33,9 @@ export default function SiteConfigProvider({
     setVersion((v) => v + 1);
   }, [config]);
 
-  return <div key={version}>{children}</div>;
+  return (
+    <div key={version} className="flex min-h-full flex-1 flex-col">
+      {children}
+    </div>
+  );
 }
