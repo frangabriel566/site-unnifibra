@@ -91,7 +91,7 @@ export default function LeadsManager() {
                   <tr key={`${r.date}-${r.cityId}-${r.megas}`} className="border-b border-slate-100">
                     <td className="py-2 pr-4">{r.date}</td>
                     <td className="py-2 pr-4">{r.cityName}</td>
-                    <td className="py-2 pr-4">{r.megas} Mega</td>
+                    <td className="py-2 pr-4">{r.megas > 0 ? `${r.megas} Mega` : "Geral"}</td>
                     <td className="py-2 pr-4">{r.count}</td>
                   </tr>
                 ))}
