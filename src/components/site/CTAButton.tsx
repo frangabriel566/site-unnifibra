@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
+import { recordLead } from "@/lib/leadClient";
 import { TrackEventName } from "@/types";
 import { cn } from "@/lib/utils";
 import { useCity } from "./CityContext";
