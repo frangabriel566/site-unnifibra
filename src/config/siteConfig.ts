@@ -29,7 +29,9 @@ export const siteConfig: SiteConfig = {
     phone: "(11) 99999-9999",
     address: "Av. Tecnologia, 1000 - Centro, Sua Cidade - UF",
     cnpj: "00.000.000/0001-00",
-    attendanceHours: "Segunda a Sábado, das 08h às 20h",
+    attendanceHours:
+      "Segunda a Sexta das 07:30 às 12:00, e das 14:00 às 17:30. Aos sábados das 07:30 às 12:00.",
+    legalName: "UnniFibra Telecomunicações LTDA",
   },
 
   appearance: {
