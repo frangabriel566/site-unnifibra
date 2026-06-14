@@ -58,6 +58,15 @@ export default function CTAButton({
           return;
         }
         trackEvent(trackingEvent, { source: "website" });
+
+        if (megas) {
+          fetch("/api/leads", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ cityId: city.id, cityName: city.name, megas }),
+            keepalive: true,
+          }).catch(() => {});
+        }
       }}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 active:scale-95",
