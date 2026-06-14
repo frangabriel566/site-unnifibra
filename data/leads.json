@@ -5,5 +5,12 @@
     "cityName": "Luzilândia-PI",
     "megas": 500,
     "count": 1
+  },
+  {
+    "date": "2026-06-14",
+    "cityId": "esperantina-pi",
+    "cityName": "Esperantina-PI",
+    "megas": 0,
+    "count": 1
   }
 ]

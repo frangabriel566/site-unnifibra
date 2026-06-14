@@ -7,6 +7,9 @@ import Logo from "./Logo";
 import WhatsAppIcon from "./WhatsAppIcon";
 import { useCity } from "./CityContext";
 import { siteConfig } from "@/config/siteConfig";
+import { generateWhatsAppLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/whatsapp";
+import { trackEvent } from "@/lib/analytics";
+import { recordLead } from "@/lib/leadClient";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
