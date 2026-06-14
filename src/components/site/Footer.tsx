@@ -71,8 +71,9 @@ export default function Footer() {
             <h3 className="font-bold text-white">Informações</h3>
             <ul className="mt-4 space-y-2 text-sm text-slate-400">
               <li className="font-semibold text-slate-300">{general.legalName}</li>
-              <li>{general.attendanceHours}</li>
               <li>CNPJ: {general.cnpj}</li>
+              <li className="mt-3 font-semibold text-slate-300">Horário de Funcionamento</li>
+              <li>{general.attendanceHours}</li>
             </ul>
           </div>
 
