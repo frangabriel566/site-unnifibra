@@ -41,6 +41,7 @@ export default function CTAButton({
   icon,
   trackingEvent = "whatsapp_click",
   className,
+  megas,
 }: CTAButtonProps) {
   const { city, openModal } = useCity();
   const href = city ? generateWhatsAppLink(city.whatsappNumber, message) : "#";
