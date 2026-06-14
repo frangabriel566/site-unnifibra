@@ -6,6 +6,14 @@ export interface PlanFeature {
   text: string;
 }
 
+export interface LeadRecord {
+  date: string; // YYYY-MM-DD
+  cityId: string;
+  cityName: string;
+  megas: number;
+  count: number;
+}
+
 export interface Plan {
   id: string;
   name: string;
