@@ -11,6 +11,13 @@
     "cityId": "esperantina-pi",
     "cityName": "Esperantina-PI",
     "megas": 0,
-    "count": 1
+    "count": 2
+  },
+  {
+    "date": "2026-06-14",
+    "cityId": "luzilandia-pi",
+    "cityName": "Luzilândia-PI",
+    "megas": 0,
+    "count": 2
   }
 ]

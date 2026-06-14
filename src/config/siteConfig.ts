@@ -416,7 +416,7 @@ export const siteConfig: SiteConfig = {
   social: {
     // FICTÍCIO - substituir pelos links oficiais
     instagram: "https://www.instagram.com/unnifibra21?igsh=MXc3Zzk5MTZza3ZpYw==",
-    facebook: "https://facebook.com/unnifibra",
+    facebook: "https://www.facebook.com/profile.php?id=100072025903470",
     tiktok: "https://tiktok.com/@unnifibra",
     whatsapp: "https://wa.me/5511999999999",
     youtube: "https://youtube.com/@unnifibra",
