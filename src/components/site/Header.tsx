@@ -72,7 +72,7 @@ export default function Header() {
               aria-label="Instagram"
               className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
             >
-              <Instagram className="h-4.5 w-4.5" />
+              <Instagram className="h-[18px] w-[18px]" />
             </a>
             <a
               href={social.facebook}
@@ -81,7 +81,7 @@ export default function Header() {
               aria-label="Facebook"
               className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
             >
-              <Facebook className="h-4.5 w-4.5" />
+              <Facebook className="h-[18px] w-[18px]" />
             </a>
           </div>
 
@@ -149,6 +149,27 @@ export default function Header() {
             <UserRound className="h-4 w-4" />
             Central do Assinante
           </a>
+
+          <div className="mt-2 flex items-center justify-center gap-4">
+            <a
+              href={social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href={social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+          </div>
 
           <div className="mt-3 flex flex-col gap-3">
             <CTAButton
