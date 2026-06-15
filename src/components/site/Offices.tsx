@@ -31,26 +31,6 @@ export default function Offices() {
           <p className="mx-auto mt-4 max-w-2xl text-slate-300">
             Conheça uma de nossas unidades e fale com a nossa equipe pessoalmente.
           </p>
-
-          <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-sky-400/20 bg-white/[0.03] px-6 py-5 backdrop-blur sm:flex-row sm:justify-between sm:gap-6 sm:px-8">
-            <div className="flex items-center gap-4 text-center sm:text-left">
-              <span className="hidden h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-sky-400/10 text-sky-300 sm:flex">
-                <Smartphone className="h-5 w-5" />
-              </span>
-              <p className="text-sm text-slate-300 sm:text-base">
-                Baixe o app da Unifibra e tenha tudo na palma da sua mão.
-              </p>
-            </div>
-            <a
-              href="https://apps.apple.com/br/app/central-unnifibra/id6477547828"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full flex-shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-400 to-brand-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-sky-500/30 transition-all hover:brightness-110 sm:w-auto"
-            >
-              <Smartphone className="h-4 w-4" />
-              Baixar App
-            </a>
-          </div>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
