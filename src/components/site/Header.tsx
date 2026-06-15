@@ -20,7 +20,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { city, openModal } = useCity();
-  const { general } = siteConfig;
+  const { general, social } = siteConfig;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -28,18 +28,6 @@ export default function Header() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const whatsappHref = city ? generateWhatsAppLink(city.whatsappNumber, DEFAULT_WHATSAPP_MESSAGE) : "#";
-
-  const handleWhatsAppClick = (e: React.MouseEvent) => {
-    if (!city) {
-      e.preventDefault();
-      openModal();
-      return;
-    }
-    trackEvent("whatsapp_click", { source: "header_icon" });
-    recordLead(city.id, city.name, 0);
-  };
 
   return (
     <header
