@@ -205,6 +205,7 @@ export interface GeneralConfig {
   cnpj: string;
   attendanceHours: string;
   legalName: string;
+  subscriberPortalUrl: string;
 }
 
 export interface SiteConfig {
