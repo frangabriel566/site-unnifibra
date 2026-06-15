@@ -53,15 +53,26 @@ export default function Header() {
         </a>
 
         <nav className="hidden items-center gap-4 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-slate-200 transition-colors hover:text-sky-400"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.label === "Promoção" ? (
+              <button
+                key={link.href}
+                type="button"
+                onClick={() => setPromoOpen(true)}
+                className="text-sm font-medium text-slate-200 transition-colors hover:text-sky-400"
+              >
+                {link.label}
+              </button>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-slate-200 transition-colors hover:text-sky-400"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
