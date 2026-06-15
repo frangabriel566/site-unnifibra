@@ -64,18 +64,28 @@ export default function Header() {
             {city ? city.name : "Escolher cidade"}
           </button>
 
-          <a
-            href={whatsappHref}
-            target={city ? "_blank" : undefined}
-            rel={city ? "noopener noreferrer" : undefined}
-            onClick={handleWhatsAppClick}
-            aria-label="WhatsApp"
-            className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-emerald-400"
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-          </a>
+          <div className="flex items-center gap-1">
+            <a
+              href={social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
+            >
+              <Instagram className="h-4.5 w-4.5" />
+            </a>
+            <a
+              href={social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
+            >
+              <Facebook className="h-4.5 w-4.5" />
+            </a>
+          </div>
 
-          <a
+          <
             href={general.subscriberPortalUrl}
             target="_blank"
             rel="noopener noreferrer"
