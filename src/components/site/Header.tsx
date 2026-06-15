@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, MapPin, Instagram, Facebook } from "lucide-react";
+import { Menu, X, MapPin, Instagram, Facebook, UserRound } from "lucide-react";
 import CTAButton from "./CTAButton";
 import Logo from "./Logo";
 import WhatsAppIcon from "./WhatsAppIcon";
+import PromotionModal from "./PromotionModal";
 import { useCity } from "./CityContext";
 import { siteConfig } from "@/config/siteConfig";
 import { generateWhatsAppLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/whatsapp";
