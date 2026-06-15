@@ -54,17 +54,17 @@ export default function PromotionModal({
               {promotion.title}
             </h2>
 
-            <p className="mt-3 text-base text-slate-200">{promotion.description}</p>
+            <p className="mt-2 text-base text-slate-200">{promotion.description}</p>
 
-            <p className="mt-4 text-4xl font-extrabold text-white">
+            <p className="mt-2 text-4xl font-extrabold text-white">
               {formatCurrency(promotion.promoPrice)}
               <span className="text-lg font-medium text-slate-300">/mês</span>
             </p>
             <p className="text-sm text-slate-300">
-              nos primeiros {promotion.durationMonths} meses, em qualquer plano
+              Oferta válida nos {promotion.durationMonths} primeiros meses
             </p>
 
-            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <ul className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               {promotion.benefits.map((benefit) => (
                 <li key={benefit} className="flex items-center gap-2 text-sm text-slate-200">
                   <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-emerald-300" />
