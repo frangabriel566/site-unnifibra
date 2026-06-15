@@ -169,8 +169,8 @@ export const siteConfig: SiteConfig = {
   promotion: {
     active: true,
     title: "Promoção especial UNNIFIBRA",
-    description: "Contrate qualquer plano por apenas:",
-    promoPrice: 59.9,
+    description: "Qualquer plano por apenas:",
+    promoPrice: 59.99,
     durationMonths: 3,
     badge: "Oferta por tempo limitado",
     benefits: [
@@ -181,7 +181,7 @@ export const siteConfig: SiteConfig = {
       "Fidelidade de 12 meses",
     ],
     whatsappMessage:
-      "Olá, quero aproveitar a promoção da UNNIFIBRA de 3 meses por R$ 59,90. Gostaria de consultar a disponibilidade.",
+      "Olá, quero aproveitar a promoção da UNNIFIBRA de 3 meses por R$ 59,99. Gostaria de consultar a disponibilidade.",
   },
 
   loyalty: {
