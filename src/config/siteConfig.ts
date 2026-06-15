@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
     attendanceHours:
       "Segunda a Sexta das 07:30 às 12:00, e das 14:00 às 17:30.\nAos sábados das 07:30 às 12:00.",
     legalName: "UnniFibra Telecomunicações LTDA",
-    subscriberPortalUrl: "https://apps.apple.com/br/app/central-unnifibra/id6477547828",
+    subscriberPortalUrl: "https://unnifibra.sgp.net.br/accounts/central/login",
   },
 
   appearance: {
