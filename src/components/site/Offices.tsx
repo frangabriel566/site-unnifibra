@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Navigation } from "lucide-react";
+import { MapPin, Navigation, Smartphone } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 
 export default function Offices() {
