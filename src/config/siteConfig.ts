@@ -169,13 +169,11 @@ export const siteConfig: SiteConfig = {
   promotion: {
     active: true,
     title: "Promoção especial UNNIFIBRA",
-    description:
-      "Contrate qualquer plano e pague apenas R$ 59,90 nos 3 primeiros meses.",
+    description: "Contrate qualquer plano por apenas:",
     promoPrice: 59.9,
     durationMonths: 3,
     badge: "Oferta por tempo limitado",
     benefits: [
-      "Qualquer plano por R$ 59,90 nos 3 primeiros meses",
       "Instalação grátis",
       "Equipamentos grátis",
       "Internet fibra óptica",
