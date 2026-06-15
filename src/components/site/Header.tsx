@@ -124,6 +124,16 @@ export default function Header() {
             </a>
           </div>
 
+          <a
+            href={general.subscriberPortalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 rounded-md border border-sky-400/40 px-3 py-1.5 text-xs font-semibold text-sky-400 transition-colors hover:bg-sky-400/10"
+          >
+            <UserRound className="h-3.5 w-3.5" />
+            Central do Assinante
+          </a>
+
           <CTAButton
             message="Olá, gostaria de contratar um plano de internet da UNNIFIBRA."
             variant="primary"
