@@ -52,6 +52,9 @@ export default function GeneralSettings() {
         <Field label="Horário de atendimento">
           <Input value={form.attendanceHours} onChange={(e) => setForm({ ...form, attendanceHours: e.target.value })} />
         </Field>
+        <Field label="URL da Central do Assinante">
+          <Input value={form.subscriberPortalUrl} onChange={(e) => setForm({ ...form, subscriberPortalUrl: e.target.value })} />
+        </Field>
         <Field label="Endereço" className="sm:col-span-2">
           <Input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
         </Field>
