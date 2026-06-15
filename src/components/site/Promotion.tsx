@@ -43,7 +43,7 @@ export default function Promotion() {
                 <span className="text-xl font-medium text-sky-100">/mês</span>
               </p>
               <p className="text-sky-100">
-                Oferta válida nos {promotion.durationMonths} primeiros meses
+                nos {promotion.durationMonths} primeiros meses
               </p>
 
               <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
