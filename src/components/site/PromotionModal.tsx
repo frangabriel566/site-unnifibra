@@ -61,7 +61,7 @@ export default function PromotionModal({
               <span className="text-lg font-medium text-slate-300">/mês</span>
             </p>
             <p className="text-sm text-slate-300">
-              Oferta válida nos {promotion.durationMonths} primeiros meses
+              nos {promotion.durationMonths} primeiros meses
             </p>
 
             <ul className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
