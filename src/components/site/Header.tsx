@@ -85,7 +85,7 @@ export default function Header() {
             </a>
           </div>
 
-          <
+          <a
             href={general.subscriberPortalUrl}
             target="_blank"
             rel="noopener noreferrer"
