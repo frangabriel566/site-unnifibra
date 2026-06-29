@@ -79,6 +79,10 @@ export function AdminConfigProvider({ children }: { children: ReactNode }) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(next),
         });
+        if (res.status === 401) {
+          window.location.replace("/admin/login");
+          return;
+        }
         if (!res.ok) {
           const data = await res.json().catch(() => null);
           throw new Error(data?.error || "Erro ao salvar configuração.");
