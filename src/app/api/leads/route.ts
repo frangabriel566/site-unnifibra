@@ -1,6 +1,10 @@
 import { incrementLead, getLeads } from "@/lib/leads";
+import { getTokenFromRequest, isValidAdminToken, unauthorizedResponse } from "@/lib/adminAuth";
 
-export async function GET() {
+export async function GET(request: Request) {
+  if (!isValidAdminToken(getTokenFromRequest(request) ?? "")) {
+    return unauthorizedResponse();
+  }
   const data = await getLeads();
   return Response.json(data);
 }
