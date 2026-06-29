@@ -41,9 +41,15 @@ export function AdminConfigProvider({ children }: { children: ReactNode }) {
     let cancelled = false;
 
     fetch("/api/config")
-      .then((res) => res.json())
-      .then((data: SiteConfig) => {
-        if (cancelled) return;
+      .then((res) => {
+        if (res.status === 401) {
+          window.location.replace("/admin/login");
+          return null;
+        }
+        return res.json();
+      })
+      .then((data: SiteConfig | null) => {
+        if (cancelled || !data) return;
         setConfig({
           ...defaultConfig,
           ...data,
