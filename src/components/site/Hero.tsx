@@ -151,7 +151,7 @@ export default function Hero() {
               A internet que <span className="text-gradient">conecta sua vida</span>
             </h1>
 
-            <p className="mx-auto mt-5 max-w-2xl text-lg font-medium text-slate-200">
+            <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-slate-200 sm:text-lg">
               Planos de fibra óptica com velocidade, estabilidade e atendimento humanizado.
             </p>
 
