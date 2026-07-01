@@ -57,11 +57,11 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex xl:gap-3">
           <button
             type="button"
             onClick={openModal}
-            className="flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-xs font-medium text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-400"
+            className="flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-400"
           >
             <MapPin className="h-3.5 w-3.5" />
             {city ? city.name : "Escolher cidade"}
