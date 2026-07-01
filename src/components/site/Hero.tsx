@@ -45,8 +45,8 @@ export default function Hero() {
         className={cn(
           "relative w-full overflow-hidden bg-brand-primary",
           banner.title
-            ? "h-[480px] sm:h-[560px] lg:h-[640px]"
-            : "aspect-[4/5] sm:aspect-[21/9] lg:h-[640px] lg:aspect-auto"
+            ? "h-[340px] sm:h-[420px] lg:h-[min(540px,62vh)] xl:h-[580px] 2xl:h-[640px]"
+            : "aspect-[4/5] sm:aspect-[16/6] lg:h-[min(540px,62vh)] lg:aspect-auto xl:h-[580px]"
         )}
       >
         <AnimatePresence mode="wait">
