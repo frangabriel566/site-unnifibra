@@ -46,7 +46,7 @@ export default function Hero() {
           "relative w-full overflow-hidden bg-brand-primary",
           banner.title
             ? "h-[380px] sm:h-[460px] md:h-[520px] lg:h-[min(560px,65vh)] xl:h-[min(620px,70vh)] 2xl:h-[680px]"
-            : "h-[420px] sm:h-[clamp(300px,56.25vw,85vh)] xl:h-[clamp(400px,56.25vw,90vh)]"
+            : "h-[420px] sm:h-[min(56.25vw,85vh)] xl:h-[min(56.25vw,88vh)] 2xl:h-[min(56.25vw,90vh)]"
         )}
       >
         <AnimatePresence mode="wait">
