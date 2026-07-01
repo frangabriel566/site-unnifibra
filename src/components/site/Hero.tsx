@@ -160,7 +160,7 @@ export default function Hero() {
               instalação facilitada e suporte pelo WhatsApp.
             </p>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="#planos"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-brand-primary shadow-lg shadow-black/20 transition-transform hover:scale-105 sm:w-auto"
