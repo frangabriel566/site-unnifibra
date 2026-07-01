@@ -70,7 +70,7 @@ export default function Hero() {
               alt={banner.title || siteConfig.general.companyName}
               className={cn(
                 "h-full w-full sm:hidden",
-                banner.title ? "object-cover" : "object-contain object-center"
+                banner.title ? "object-cover object-center" : "object-cover object-top"
               )}
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
