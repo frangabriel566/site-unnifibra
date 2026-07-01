@@ -40,8 +40,9 @@ export default function Header() {
     >
       <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex shrink-0 items-center">
-          <Logo width={100} className="lg:hidden" />
-          <Logo width={140} className="hidden lg:block" />
+          <Logo width={96} className="lg:hidden" />
+          <Logo width={120} className="hidden lg:block xl:hidden" />
+          <Logo width={132} className="hidden xl:block" />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
