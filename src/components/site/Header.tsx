@@ -45,7 +45,7 @@ export default function Header() {
           <Logo width={132} className="hidden xl:block" />
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
