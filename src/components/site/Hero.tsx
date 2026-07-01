@@ -97,14 +97,14 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="max-w-xl"
             >
-              <h1 className="text-3xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <h1 className="text-2xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl xl:text-5xl">
                 {banner.title}
               </h1>
-              <p className="mt-4 text-lg font-medium text-white/90">{banner.subtitle}</p>
+              <p className="mt-3 text-base font-medium text-white/90 sm:text-lg">{banner.subtitle}</p>
               {banner.buttonText && (
                 <a
                   href={banner.buttonLink}
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-brand-primary shadow-lg shadow-black/20 transition-transform hover:scale-105"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-primary shadow-lg shadow-black/20 transition-transform hover:scale-105 sm:px-8 sm:py-4 sm:text-base"
                 >
                   {banner.buttonText}
                   <ArrowRight className="h-5 w-5" />
