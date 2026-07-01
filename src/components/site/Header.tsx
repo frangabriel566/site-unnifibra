@@ -102,7 +102,7 @@ export default function Header() {
             message="Olá, gostaria de contratar um plano de internet da UNNIFIBRA."
             variant="primary"
             size="sm"
-            className="!bg-gradient-to-r !from-amber-400 !to-orange-500 !text-slate-900 shadow-lg shadow-amber-500/30 hover:!brightness-105 hover:shadow-amber-400/50 px-6"
+            className="!bg-gradient-to-r !from-amber-400 !to-orange-500 !text-slate-900 !py-1.5 !px-4 shadow-md shadow-amber-500/30 hover:!brightness-105 xl:!px-5"
           >
             Contratar agora
           </CTAButton>
