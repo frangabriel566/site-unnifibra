@@ -179,7 +179,7 @@ export default function Hero() {
               </CTAButton>
             </div>
 
-            <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-3">
+            <div className="mx-auto mt-7 flex max-w-3xl flex-wrap items-center justify-center gap-3">
               {HIGHLIGHTS.map((item) => (
                 <span
                   key={item.label}
