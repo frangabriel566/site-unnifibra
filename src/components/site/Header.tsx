@@ -38,7 +38,7 @@ export default function Header() {
           : ""
       )}
     >
-      <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:gap-4 lg:px-8 xl:gap-5">
         <a href="#inicio" className="flex shrink-0 items-center">
           <Logo width={96} className="lg:hidden" />
           <Logo width={120} className="hidden lg:block xl:hidden" />
