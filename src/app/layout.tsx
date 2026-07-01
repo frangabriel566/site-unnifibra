@@ -19,6 +19,12 @@ const geistMono = Geist_Mono({
 
 export const dynamic = "force-dynamic";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const siteConfig = await getMergedSiteConfig();
 
