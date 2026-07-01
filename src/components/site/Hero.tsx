@@ -132,7 +132,7 @@ export default function Hero() {
         )}
       </section>
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#050b18] via-[#071029] to-[#050b18] py-14 sm:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#050b18] via-[#071029] to-[#050b18] py-10 sm:py-14 lg:py-16 xl:py-20">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.18),transparent_60%)]" />
 
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
