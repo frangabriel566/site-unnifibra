@@ -147,7 +147,7 @@ export default function Hero() {
               Internet fibra óptica
             </span>
 
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
               A internet que <span className="text-gradient">conecta sua vida</span>
             </h1>
 
