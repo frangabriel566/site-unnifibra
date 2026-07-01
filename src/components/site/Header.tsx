@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-[999] h-14 w-full bg-brand-primary py-0 transition-all duration-300 sm:h-16 lg:h-[60px] xl:h-[68px]",
+        "sticky top-0 z-[999] h-14 w-full bg-brand-primary py-0 transition-all duration-300 sm:h-16 lg:h-[60px] xl:h-[64px] 2xl:h-[72px]",
         scrolled
           ? "shadow-lg shadow-black/30 border-b border-white/5 backdrop-blur-sm bg-brand-primary/95"
           : ""
