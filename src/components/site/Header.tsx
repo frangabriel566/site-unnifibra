@@ -67,24 +67,24 @@ export default function Header() {
             {city ? city.name : "Escolher cidade"}
           </button>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             <a
               href={social.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
             >
-              <Instagram className="h-[18px] w-[18px]" />
+              <Instagram className="h-4 w-4" />
             </a>
             <a
               href={social.facebook}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-white/10 hover:text-sky-400"
             >
-              <Facebook className="h-[18px] w-[18px]" />
+              <Facebook className="h-4 w-4" />
             </a>
           </div>
 
@@ -92,7 +92,7 @@ export default function Header() {
             href={general.subscriberPortalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-full border border-sky-400/40 px-3.5 py-2 text-xs font-semibold text-sky-400 transition-colors hover:bg-sky-400/10"
+            className="flex items-center gap-1.5 rounded-full border border-sky-400/40 px-3 py-1.5 text-xs font-semibold text-sky-400 transition-colors hover:bg-sky-400/10"
           >
             <UserRound className="h-3.5 w-3.5" />
             Central do Assinante
