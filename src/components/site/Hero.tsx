@@ -155,7 +155,7 @@ export default function Hero() {
               Planos de fibra óptica com velocidade, estabilidade e atendimento humanizado.
             </p>
 
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-400 sm:text-base">
+            <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-400">
               Internet fibra óptica em Luzilândia e Esperantina, com planos acessíveis,
               instalação facilitada e suporte pelo WhatsApp.
             </p>
