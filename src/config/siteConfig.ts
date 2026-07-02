@@ -13,8 +13,7 @@ import { generateWhatsAppLink } from "@/lib/whatsapp";
 // endereço, CNPJ, etc).
 // =============================================================================
 
-// FICTÍCIO - substituir pelo número oficial do WhatsApp (com DDI e DDD)
-const WHATSAPP_NUMBER = "5511999999999";
+const WHATSAPP_NUMBER = "5586981608566";
 
 export const siteConfig: SiteConfig = {
   general: {
