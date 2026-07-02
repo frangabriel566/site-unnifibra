@@ -79,7 +79,7 @@ export default function Hero() {
             {banner.title && (
               <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/85 via-brand-primary/40 to-transparent" />
             )}
-          </motion.a>
+          </motion.div>
         </AnimatePresence>
 
         {banner.title && (
