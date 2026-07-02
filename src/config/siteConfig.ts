@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
     favicon: "/favicon.ico",
     whatsappNumber: WHATSAPP_NUMBER,
     email: "unnifibraprovedor@gmail.com",
-    phone: "(11) 99999-9999",
+    phone: "(86) 98160-8566",
     address: "Av. Tecnologia, 1000 - Centro, Sua Cidade - UF",
     cnpj: "43.351.274/0002-19",
     attendanceHours:
