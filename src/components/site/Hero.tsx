@@ -50,19 +50,13 @@ export default function Hero() {
         )}
       >
         <AnimatePresence mode="wait">
-          <motion.a
+          <motion.div
             key={banner.id}
-            href={banner.buttonLink || "#planos"}
-            target={isExternalLink ? "_blank" : undefined}
-            rel={isExternalLink ? "noopener noreferrer" : undefined}
-            onClick={() => {
-              if (isExternalLink) trackEvent("whatsapp_click", { source: "hero_banner" });
-            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 block"
+            className="absolute inset-0"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
