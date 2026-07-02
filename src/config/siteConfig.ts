@@ -413,7 +413,7 @@ export const siteConfig: SiteConfig = {
     instagram: "https://www.instagram.com/unnifibra21?igsh=MXc3Zzk5MTZza3ZpYw==",
     facebook: "https://www.facebook.com/profile.php?id=100072025903470",
     tiktok: "https://tiktok.com/@unnifibra",
-    whatsapp: "https://wa.me/5511999999999",
+    whatsapp: "https://wa.me/5586981608566",
     youtube: "https://youtube.com/@unnifibra",
     linkedin: "https://linkedin.com/company/unnifibra",
   },
