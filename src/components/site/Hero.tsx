@@ -36,7 +36,6 @@ export default function Hero() {
   if (banners.length === 0) return null;
 
   const banner = banners[index];
-  const isExternalLink = /^https?:\/\//.test(banner.buttonLink);
 
   return (
     <>
