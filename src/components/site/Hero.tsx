@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Cable, Gamepad2, HeartHandshake, Tv, Wrench } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
-import { trackEvent } from "@/lib/analytics";
 import { DEFAULT_WHATSAPP_MESSAGE } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import CTAButton from "./CTAButton";
@@ -20,7 +19,7 @@ const HIGHLIGHTS = [
 
 export default function Hero() {
   const banners = [...siteConfig.appearance.heroBanners]
-    .filter((banner) => banner.active)
+    .filter((b) => b.active)
     .sort((a, b) => a.order - b.order);
 
   const [index, setIndex] = useState(0);
@@ -28,7 +27,7 @@ export default function Hero() {
   useEffect(() => {
     if (banners.length <= 1) return;
     const timer = setInterval(() => {
-      setIndex((current) => (current + 1) % banners.length);
+      setIndex((i) => (i + 1) % banners.length);
     }, 6000);
     return () => clearInterval(timer);
   }, [banners.length]);
@@ -39,15 +38,14 @@ export default function Hero() {
 
   return (
     <>
-      <section
-        id="inicio"
-        className={cn(
-          "relative w-full overflow-hidden bg-brand-primary",
-          banner.title
-            ? "h-[380px] sm:h-[460px] md:h-[520px] lg:h-[min(560px,65vh)] xl:h-[min(620px,70vh)] 2xl:h-[680px]"
-            : "h-[420px] sm:h-[min(56.25vw,85vh)] xl:h-[min(56.25vw,95vh)] 2xl:h-[min(56.25vw,92vh)]"
-        )}
-      >
+      {/*
+       * A section NÃO tem altura forçada.
+       * As imagens fluem naturalmente (w-full → altura proporcional à largura).
+       * max-h só entra em ação em telas muito grandes; object-cover preenche
+       * sem barras e sem corte lateral — a proporção 2.334:1 das artes é
+       * sempre <= proporção do viewport em desktops/MacBooks.
+       */}
+      <section id="inicio" className="relative w-full overflow-hidden bg-brand-primary">
         <AnimatePresence mode="wait">
           <motion.div
             key={banner.id}
@@ -55,58 +53,70 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0"
+            className="relative w-full"
           >
+            {/* Mobile: imagem portrait, máximo 85vh para não dominar a tela */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={banner.mobileImage || banner.image}
               alt={banner.title || siteConfig.general.companyName}
               className={cn(
-                "h-full w-full sm:hidden",
-                banner.title ? "object-cover object-center" : "object-cover object-top"
+                "block w-full sm:hidden",
+                "max-h-[85vh] object-cover object-top",
               )}
             />
+
+            {/* Desktop: imagem 1916×821 (ratio 2.334). Flui pela largura do
+                viewport sem corte lateral. max-h-[90vh] só atua em telas ≥4K. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={banner.image}
               alt={banner.title || siteConfig.general.companyName}
               className={cn(
-                "hidden h-full w-full sm:block",
-                banner.title ? "object-cover object-center" : "object-cover object-top"
+                "hidden w-full sm:block",
+                "max-h-[90vh] object-cover object-top",
               )}
             />
+
+            {/* Overlay de gradiente apenas para banners com texto */}
             {banner.title && (
               <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/85 via-brand-primary/40 to-transparent" />
             )}
           </motion.div>
         </AnimatePresence>
 
+        {/* Conteúdo HTML sobreposto — só renderiza quando o banner tem título */}
         {banner.title && (
-          <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8">
-            <motion.div
-              key={`${banner.id}-text`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="max-w-xl"
-            >
-              <h1 className="text-2xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl xl:text-5xl">
-                {banner.title}
-              </h1>
-              <p className="mt-3 text-base font-medium text-white/90 sm:text-lg">{banner.subtitle}</p>
-              {banner.buttonText && (
-                <a
-                  href={banner.buttonLink}
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-primary shadow-lg shadow-black/20 transition-transform hover:scale-105 sm:px-8 sm:py-4 sm:text-base"
-                >
-                  {banner.buttonText}
-                  <ArrowRight className="h-5 w-5" />
-                </a>
-              )}
-            </motion.div>
+          <div className="absolute inset-0 z-10 flex items-center">
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+              <motion.div
+                key={`${banner.id}-text`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="max-w-xl"
+              >
+                <h1 className="text-2xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl xl:text-5xl">
+                  {banner.title}
+                </h1>
+                <p className="mt-3 text-base font-medium text-white/90 sm:text-lg">
+                  {banner.subtitle}
+                </p>
+                {banner.buttonText && (
+                  <a
+                    href={banner.buttonLink}
+                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-primary shadow-lg shadow-black/20 transition-transform hover:scale-105 sm:px-8 sm:py-4 sm:text-base"
+                  >
+                    {banner.buttonText}
+                    <ArrowRight className="h-5 w-5" />
+                  </a>
+                )}
+              </motion.div>
+            </div>
           </div>
         )}
 
+        {/* Dots de navegação do carrossel */}
         {banners.length > 1 && (
           <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/30 px-3 py-2 backdrop-blur-sm sm:bottom-5">
             {banners.map((item, i) => (
@@ -117,7 +127,7 @@ export default function Hero() {
                 onClick={() => setIndex(i)}
                 className={cn(
                   "h-2.5 rounded-full transition-all",
-                  i === index ? "w-7 bg-white" : "w-2.5 bg-white/40 hover:bg-white/70"
+                  i === index ? "w-7 bg-white" : "w-2.5 bg-white/40 hover:bg-white/70",
                 )}
               />
             ))}
